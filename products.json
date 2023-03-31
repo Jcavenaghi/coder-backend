@@ -5,7 +5,43 @@
 		"description": "prueba",
 		"price": 200,
 		"thumbnail": "sin img",
+		"code": "abc1",
+		"stock": 25
+	},
+	{
+		"id": 2,
+		"title": "segundo",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc12",
+		"stock": 25
+	},
+	{
+		"id": 3,
+		"title": "tercero",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
 		"code": "abc123",
+		"stock": 25
+	},
+	{
+		"id": 4,
+		"title": "cuarto",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc1234",
+		"stock": 25
+	},
+	{
+		"id": 5,
+		"title": "quinto",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc12345",
 		"stock": 25
 	}
 ]

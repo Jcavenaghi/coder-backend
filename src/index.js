@@ -1,8 +1,5 @@
 import ProductManager from "./manager/ProductManager.js"
-console.log("yea")
 const manager = new ProductManager('./products.json')
-
-console.log("yea")
 const env = async () => {
     let result = await manager.getProducts();
     console.log(result);

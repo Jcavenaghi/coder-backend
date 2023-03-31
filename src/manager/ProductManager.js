@@ -64,7 +64,7 @@ export default class ProductManager {
                 let values = Object.values(field)             
                 products[i][keyField[0]] = values[0]
             } else {
-                products[i] = { id: id, ...field}
+                products[i] = {...field, id: id}
             }
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, `\t`))
             return products[i]
