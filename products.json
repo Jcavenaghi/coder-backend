@@ -43,5 +43,15 @@
 		"thumbnail": "sin img",
 		"code": "abc12345",
 		"stock": 25
+	},
+	{
+		"id": 6,
+		"title": "as",
+		"descripcion": "asd",
+		"code": "2",
+		"price": "3",
+		"stock": "3",
+		"category": "WEQ1",
+		"status": "on"
 	}
 ]
