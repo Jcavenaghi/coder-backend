@@ -3,38 +3,65 @@ import ProductManager from "../manager/ProductManager.js";
 
 const router = Router();
 
-const manager = new ProductManager("./products.json")
+const manager = new ProductManager("src/data/products.json")
 
 router.get("/", async (req, res) => {
     const limit = parseInt(req.query.limit);
-    let result = await manager.getProducts();
-    console.log(limit)
-    if ( limit === 0 || limit >= result.length || isNaN(limit)) {
-        console.log("i'm here, it is ok?")
-        res.send(result)
-    } else {
-        console.log("i'm here, it is ok?2")
-        let newArray  =[]
-        for (let index = 0; index < limit; index++) {
-            newArray.push(result[index])
+    try {
+        let result = await manager.getProducts();
+        if ( limit === 0 || limit >= result.length || isNaN(limit)) {
+            res.send(result)
+        } else {
+            let newArray  =[]
+            for (let index = 0; index < limit; index++) {
+                newArray.push(result[index])
+            }
+            res.send(newArray)
         }
-        res.send(newArray)
+    } catch(error) {
+        res.status(400).send({status:"error", error: `Error al consultar a la API`})
     }
 })
 
 router.get("/:pid", async (req, res) => {
     let id = req.params.pid;
-    let result = await manager.getProductById(parseInt(id))
-    res.send(result)
+    try {
+        let result = await manager.getProductById(parseInt(id))
+        res.send(result)
+    } catch (error) {
+        res.status(400).send({status:"error", error: `Error al consultar a la API`})
+    }
+
 })
 
 router.post('/', async (req, res) => {
-    const prod = req.body
+    const prod = req.body;
     try {
         let add = await manager.addProduct(prod);
-        res.status(200).send({status:"ok"})
+        res.status(200).send({status:"ok", add})
     } catch(error) {
-        res.status(200).send({status:"error", error: `${error}`})
+        res.status(200).send({status:"error", error: `${error}`});
+    }
+})
+
+router.put("/:pid", async (req, res) => {
+    const prod = req.body;
+    let id = req.params.pid;
+    try {
+        let result = await manager.updateProduct(parseInt(id), prod);
+        res.status(200).send({status:"ok", result});
+    } catch(error) {
+        res.status(400).send({status:"error", error: `${error}`});
+    }
+})
+
+router.delete("/:pid", async (req, res) => {
+    let id = req.params.pid;
+    try {
+        let prods = await manager.deleteProduct(parseInt(id));
+        res.status(200).send({status:"ok", prods});
+    } catch(error) {
+        res.status(400).send({status:"error", error: `${error}`});
     }
 })
 

@@ -1,0 +1,116 @@
+[
+	{
+		"id": 1,
+		"title": "change",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc1",
+		"stock": 25
+	},
+	{
+		"id": 2,
+		"title": "segundo",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc12",
+		"stock": 25
+	},
+	{
+		"id": 3,
+		"title": "tercero",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc123",
+		"stock": 25
+	},
+	{
+		"id": 4,
+		"title": "cuarto",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc1234",
+		"stock": 25
+	},
+	{
+		"id": 5,
+		"title": "quinto",
+		"description": "prueba",
+		"price": 200,
+		"thumbnail": "sin img",
+		"code": "abc12345",
+		"stock": 25
+	},
+	{
+		"id": 6,
+		"title": "as",
+		"descripcion": "asd",
+		"code": "2",
+		"price": "3",
+		"stock": "3",
+		"category": "WEQ1",
+		"status": "on"
+	},
+	{
+		"id": 7,
+		"title": "qwe",
+		"descripcion": "213asd",
+		"code": "1",
+		"price": "1",
+		"stock": "2",
+		"category": "123sda",
+		"status": "on"
+	},
+	{
+		"id": 8,
+		"status": true,
+		"title": "sedf ",
+		"descripcion": "sdf",
+		"code": "8",
+		"price": "8",
+		"stock": "9",
+		"category": "WEQ1"
+	},
+	{
+		"id": 10,
+		"status": true,
+		"title": "example",
+		"description": "example descripcion",
+		"code": "12",
+		"price": "8",
+		"stock": "92",
+		"category": "WEQ12"
+	},
+	{
+		"id": 11,
+		"status": true,
+		"title": "as",
+		"description": "example as",
+		"code": "123",
+		"price": "8",
+		"stock": "92",
+		"category": "as"
+	},
+	{
+		"id": 12,
+		"status": true,
+		"title": "as",
+		"description": "example as",
+		"code": "1233445",
+		"price": "8",
+		"stock": "asd"
+	},
+	{
+		"id": 13,
+		"status": true,
+		"title": "as",
+		"description": "example as",
+		"code": "12341115",
+		"price": "8",
+		"stock": "asd",
+		"category": "sa"
+	}
+]
