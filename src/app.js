@@ -1,14 +1,18 @@
 import express from 'express';
 import handlebars from 'express-handlebars'
+import mongoose from 'mongoose';
+import { Server } from 'socket.io';
 
 import productsRouter from './routes/products.router.js';
 import cartsRouter from './routes/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
 
-import { Server } from 'socket.io';
 
 import ProductManager from "./manager/ProductManager.js";
+
+
+
 const manager = new ProductManager("src/data/products.json");
 
 const PORT = 8080;
@@ -37,7 +41,9 @@ socketServer.on('connection', async socket=> {
     });
 })
 
-
+/* Configuración de BD mongoose */
+const MONGO =  'mongodb+srv://joaquincavenaghi:d6HYWTvSJR6G4yjp@cluster0.ibr5hox.mongodb.net/?retryWrites=true&w=majority';
+const connection = mongoose.connect(MONGO)
 
 app.engine('handlebars', handlebars.engine());
 
@@ -54,5 +60,7 @@ app.use(express.static(__dirname+"/public"));
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
+
+
 
 
