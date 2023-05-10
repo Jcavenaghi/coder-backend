@@ -50,14 +50,22 @@ router.put("/:cid/product/:pid", async (req, res) => {
         )
         .then(cart => {
             if (cart) {
+                console.log("wtf estoy acá?");
             // El carrito no contiene el producto, por lo que lo agregamos
             } else {
-                const cart = cartModel.findOneAndUpdate(
+                cartModel.findOneAndUpdate(
                     { _id: cid },
                     { $push: { items: { product: pid } } },
                     { new: true }
-                );
-                console.log(cart);
+                )
+                .then(cart => {
+                    console.log(cart);
+                    // El producto ha sido agregado al carrito
+                  })
+                  .catch(err => {
+                    // Error al actualizar el carrito
+                  });
+                console.log(typeof(pid));
                 res.send(cart);
             // El producto ya existe en el carrito y su cantidad ha sido incrementada
             }

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const collection = 'Product';
+const collection = 'Products';
 
 const schema = new mongoose.Schema({
     title:{
