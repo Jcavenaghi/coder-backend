@@ -3,8 +3,8 @@ import handlebars from 'express-handlebars'
 import mongoose from 'mongoose';
 import { Server } from 'socket.io';
 
-import productsRouter from './routes/products.router.js';
-import cartsRouter from './routes/carts.router.js';
+import productsRouter from './routes/api/products.router.js';
+import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
 
@@ -14,6 +14,7 @@ import __dirname from './utils.js';
 
 import ProductManager from './dao/managers/ProductManager.js';
 import MessageManager from './dao/managers/MessageManager.js';
+import productModel from './dao/models/products.js';
 
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
@@ -70,5 +71,133 @@ app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
 
 
+// const environment = async () => {
+//     const perfumes = [
+//         {
+//           title: 'Azzaro Wanted',
+//           description: '100 ml',
+//           code: 22,
+//           price: 120,
+//           status: true,
+//           stock: 85,
+//           category: 'Amaderado'
+//         },
+//         {
+//           title: 'Carolina Herrera 212 VIP Men',
+//           description: '200 ml',
+//           code: 36,
+//           price: 150,
+//           status: true,
+//           stock: 70,
+//           category: 'Oriental'
+//         },
+//         {
+//           title: 'Jean Paul Gaultier Le Male',
+//           description: '125 ml',
+//           code: 11,
+//           price: 100,
+//           status: true,
+//           stock: 110,
+//           category: 'Fougère'
+//         },
+//         {
+//           title: 'Paco Rabanne Invictus',
+//           description: '100 ml',
+//           code: 47,
+//           price: 90,
+//           status: true,
+//           stock: 95,
+//           category: 'Amaderado Acuático'
+//         },
+//         {
+//           title: 'Versace Eros',
+//           description: '100 ml',
+//           code: 3,
+//           price: 110,
+//           status: true,
+//           stock: 150,
+//           category: 'Oriental'
+//         },
+//         {
+//           title: 'Giorgio Armani Acqua di Gio',
+//           description: '100 ml',
+//           code: 29,
+//           price: 120,
+//           status: true,
+//           stock: 80,
+//           category: 'Acuático'
+//         },
+//         {
+//           title: 'Dior Sauvage',
+//           description: '200 ml',
+//           code: 41,
+//           price: 150,
+//           status: true,
+//           stock: 60,
+//           category: 'Amaderado'
+//         },
+//         {
+//           title: 'Calvin Klein Eternity for Men',
+//           description: '100 ml',
+//           code: 16,
+//           price: 80,
+//           status: true,
+//           stock: 120,
+//           category: 'Fresco'
+//         },
+//         {
+//           title: 'Ralph Lauren Polo Red',
+//           description: '125 ml',
+//           code: 26,
+//           price: 100,
+//           status: true,
+//           stock: 90,
+//           category: 'Amaderado'
+//         },
+//         {
+//           title: 'Hugo Boss Bottled',
+//           description: '100 ml',
+//           code: 8,
+//           price: 85,
+//           status: true,
+//           stock: 140,
+//           category: 'Oriental'
+//         },
+//         {
+//           title: 'Bvlgari Man in Black',
+//           description: '100 ml',
+//           code: 15,
+//           price: 120,
+//           status: true,
+//           stock: 75,
+//           category: 'Oriental Amaderado'
+//         },
+//         {
+//           title: 'Montblanc Legend',
+//           description: '100 ml',
+//           code: 42,
+//           price: 90,
+//           status: true,
+//           stock: 100,
+//           category: 'Fougère'
+//         },
+//         {
+//           title: 'Yves Saint Laurent L\'Homme',
+//           description: '100 ml',
+//           code: 9,
+//           price: 110,
+//           status: true,
+//           stock: 95,
+//           category: 'Fresco'
+//         },
+        
+//     ]
+//     productModel.insertMany(perfumes)
+//     .then((createdProducts) => {
+//       console.log(`Created ${createdProducts.length} products`);
+//     })
+//     .catch((err) => console.log(err));
+// }
 
 
+// environment();
