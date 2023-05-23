@@ -10,13 +10,28 @@ const router = express.Router();
 const manager = new ProductManager();
 const managerCart = new CartManager();
 
-router.get("/products", async (req, res) => {
+const publicAccess = (req,res,next) =>{
+  if(req.session.user) return res.redirect('/profile');
+  next();
+}
+
+const privateAccess = (req,res,next)=>{
+  if(!req.session.user) return res.redirect('/login');
+  next();
+}
+
+router.get("/products", privateAccess, async (req, res) => {
   const { limit: limitStr = '10', page = 1, sort = 'n', query = 'n' }  = req.query;
   const limit = parseInt(limitStr);
   try {
     const result = await manager.getProducts(sort, limit, page, query);
     const products = result.payload;
     const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
+    let role = "user"
+    if (req.session.user.email === "adminCoder@coder.com") {
+      role = "admin"
+     } else { role = "user" }
+    console.log(req.session.user);
     res.render('index', {
       products,
       hasPrevPage: result.hasPrevPage,
@@ -24,7 +39,9 @@ router.get("/products", async (req, res) => {
       nextPage: result.nextPage,
       prevPage: result.prevPage,
       page: result.page,
-      query: linkQuerys
+      query: linkQuerys,
+      user: req.session.user,
+      role: role
     });
 
   } catch(error) {
@@ -33,7 +50,7 @@ router.get("/products", async (req, res) => {
  })
 
 
- router.get("/products/:pid", async (req, res) => {
+ router.get("/products/:pid", privateAccess, async (req, res) => {
   const pid = req.params.pid;
   try {
     const result = await manager.getProductById(pid);
@@ -45,7 +62,7 @@ router.get("/products", async (req, res) => {
 
 
  /* vistas del carrito */
-router.get("/carts/:cid", async (req, res) => {
+router.get("/carts/:cid", privateAccess, async (req, res) => {
   const cid = req.params.cid;
   try {
     const result = await managerCart.getCart(cid);
@@ -58,8 +75,28 @@ router.get("/carts/:cid", async (req, res) => {
   }
 })
 
+router.get('/register', publicAccess, (req,res)=>{
+  res.render('session/register')
+})
 
+router.get('/', publicAccess, (req,res)=>{
+  res.render('session/login')
+})
 
+router.get('/login', publicAccess, (req,res)=>{
+  res.render('session/login')
+})
+
+router.get('/profile', privateAccess ,(req,res)=>{
+  let role = "user"
+  if (req.session.user.email === "adminCoder@coder.com") {
+    role = "admin"
+   } else { role = "user" }
+  res.render('session/profile',{
+      user: req.session.user,
+      role: role
+  })
+})
 
 //  router.get("/realtimeproducts",  async (req, res) => {
 //    const products = await  productModel.find().lean();

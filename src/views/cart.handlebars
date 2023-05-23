@@ -1,46 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>carrito</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
-<body>
-    <div class="container-fluid">
-        <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
-        <div class="row mt-4">
-            {{#each this.products}}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-body text-center">
-                        <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
-                        <p class="card-text">{{product.description}}</p>
-                        <p class="card-text">Price: ${{product.price}}</p>
-                        <p class="card-text">cantidad: {{this.quantity}}</p>
-                    </div>
+
+<div class="container-fluid">
+    <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
+    <div class="row mt-4">
+        {{#each this.products}}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <p class="card-text">Price: ${{product.price}}</p>
+                    <p class="card-text">cantidad: {{this.quantity}}</p>
                 </div>
             </div>
-            {{/each}}
         </div>
-        <div class="row mt-5"aria-label="Page navigation example">
-            <ul class="col-md-12 justify-content-center pagination">
-            {{#if this.hasPrevPage}}
-                <li class="page-item">
-                    <a class="page-link bg" href="/products/?page={{this.prevPage}}&{{this.query}}">Atras</a>
-                </li>
-            {{/if}}
-            <h3 class="mx-3">{{page}}</h3>
-            {{#if this.hasNextPage}}
-                <li class="page-item">
-                    <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Sigueinte</a>
-                </li>
-            {{/if}}
-            </ul>
-        </div>
+        {{/each}}
     </div>
-    <script src="socket.io/socket.io.js"></script>
-</body>
-</html>
+    <div class="row mt-5"aria-label="Page navigation example">
+        <ul class="col-md-12 justify-content-center pagination">
+        {{#if this.hasPrevPage}}
+            <li class="page-item">
+                <a class="page-link bg" href="/products/?page={{this.prevPage}}&{{this.query}}">Atras</a>
+            </li>
+        {{/if}}
+        <h3 class="mx-3">{{page}}</h3>
+        {{#if this.hasNextPage}}
+            <li class="page-item">
+                <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Sigueinte</a>
+            </li>
+        {{/if}}
+        </ul>
+    </div>
+</div>
+<script src="socket.io/socket.io.js"></script>

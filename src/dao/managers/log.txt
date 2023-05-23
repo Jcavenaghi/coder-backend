@@ -229,3 +229,6 @@ Fecha: 15/5/2023 -  Hora: 17:24:00 - Metodo: Consulta carrito 646241956ee9abd177
 Fecha: 15/5/2023 -  Hora: 17:24:38 - Metodo: Consulta carrito 646241956ee9abd17719e473
 Fecha: 15/5/2023 -  Hora: 17:24:49 - Metodo: Consulta carrito 646241956ee9abd17719e473
 Fecha: 15/5/2023 -  Hora: 17:35:18 - Metodo: Consulta carrito 646241956ee9abd17719e473
+Fecha: 22/5/2023 -  Hora: 11:35:42 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: 646241956ee9abd17719e473
+Fecha: 22/5/2023 -  Hora: 11:35:53 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: 646241956ee9abd17719e473
+Fecha: 22/5/2023 -  Hora: 16:31:03 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: 646241956ee9abd17719e473
