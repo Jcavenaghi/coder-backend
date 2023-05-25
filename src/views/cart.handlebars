@@ -1,16 +1,16 @@
+
 <div class="container-fluid">
-    <h1>Bienvenido {{user.name}}, rol: "{{role}}" </h1>
+    <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
     <div class="row mt-4">
-        {{#each products}}
+        {{#each this.products}}
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <div class="card-body text-center">
-                    <h5 class="card-title text-primary"><a href="/products/{{this._id}}">{{this.title}}</a></h5>
-                    <p class="card-text">{{this.description}}</p>
-                    <p class="card-text">Price: ${{this.price}}</p>
-                    <p class="card-text">Stock: {{this.stock}}</p>
+                    <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <p class="card-text">Price: ${{product.price}}</p>
+                    <p class="card-text">cantidad: {{this.quantity}}</p>
                 </div>
-                <button class="btn btn-info add-to-cart-btn mb-2 mx-5 text-uppercase" data-product-id="{{this._id}}">Añadir al carrito</button>
             </div>
         </div>
         {{/each}}
@@ -32,4 +32,3 @@
     </div>
 </div>
 <script src="socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>

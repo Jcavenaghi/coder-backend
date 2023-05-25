@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "title": "Soy yo",
+        "description": "ejemplo descr", 
+        "code": 1,
+        "price": 122,
+        "status": true,
+        "stock": "123",
+        "category": "Perfume"
+    },
+    {
+        "title": "Soy yo",
+        "description": "ejemplo descr", 
+        "code": 12,
+        "price": 122,
+        "status": true,
+        "stock": "123",
+        "category": "Perfume"
+    }
+]

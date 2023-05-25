@@ -1,30 +1,122 @@
+import productModel from "../dao/models/products.js";
+import messageModel from "../dao/models/messages.js";
+import ProductManager from "../dao/managers/ProductManager.js";
+
+import CartManager from "../dao/managers/CartManager.js";
+
 import express  from "express";
-
-
 const router = express.Router();
 
-import ProductManager from "../manager/ProductManager.js";
-const manager = new ProductManager("src/data/products.json");
+const manager = new ProductManager();
+const managerCart = new CartManager();
 
-router.get("/", async (req, res) => {
-    let products = await manager.getProducts();
-    let testUser = {
-     name: "Alejandra",
-     products
-    }
-    res.render('index', testUser);
+const publicAccess = (req,res,next) =>{
+  if(req.session.user) return res.redirect('/profile');
+  next();
+}
+
+const privateAccess = (req,res,next)=>{
+  if(!req.session.user) return res.redirect('/login');
+  next();
+}
+
+router.get("/products", privateAccess, async (req, res) => {
+  const { limit: limitStr = '10', page = 1, sort = 'n', query = 'n' }  = req.query;
+  const limit = parseInt(limitStr);
+  try {
+    const result = await manager.getProducts(sort, limit, page, query);
+    const products = result.payload;
+    const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
+    let role = "user"
+    if (req.session.user.email === "adminCoder@coder.com") {
+      role = "admin"
+     } else { role = "user" }
+    console.log(req.session.user);
+    res.render('index', {
+      products,
+      hasPrevPage: result.hasPrevPage,
+      hasNextPage: result.hasNextPage,
+      nextPage: result.nextPage,
+      prevPage: result.prevPage,
+      page: result.page,
+      query: linkQuerys,
+      user: req.session.user,
+      role: role
+    });
+
+  } catch(error) {
+    res.status(400).send({status:"error", error: `error al consultar`})
+  }
  })
 
 
-
- router.get("/realtimeproducts",  async (req, res) => {
-    let products = await manager.getProducts();
-    let testUser = {
-      name: "Alejandra",
-      products
-    } 
-    res.render('realTimeProducts', testUser);
+ router.get("/products/:pid", privateAccess, async (req, res) => {
+  const pid = req.params.pid;
+  try {
+    const result = await manager.getProductById(pid);
+    res.render('product', result);
+  } catch(error) {
+    res.status(400).send({status:"error", error: `error al consultar`})
+  }
  })
+
+
+ /* vistas del carrito */
+router.get("/carts/:cid", privateAccess, async (req, res) => {
+  const cid = req.params.cid;
+  try {
+    const result = await managerCart.getCart(cid);
+    res.render('cart', {
+      products: result.items,
+      id: cid
+    });
+  } catch(error) {
+    res.status(400).send({status:"error", error: `error al consultar`})
+  }
+})
+
+router.get('/register', publicAccess, (req,res)=>{
+  res.render('session/register')
+})
+
+router.get('/', publicAccess, (req,res)=>{
+  res.render('session/login')
+})
+
+router.get('/login', publicAccess, (req,res)=>{
+  res.render('session/login')
+})
+
+router.get('/profile', privateAccess ,(req,res)=>{
+  let role = "user"
+  if (req.session.user.email === "adminCoder@coder.com") {
+    role = "admin"
+   } else { role = "user" }
+  res.render('session/profile',{
+      user: req.session.user,
+      role: role
+  })
+})
+
+//  router.get("/realtimeproducts",  async (req, res) => {
+//    const products = await  productModel.find().lean();
+//     let testUser = {
+//       name: "Alejandra",
+//       products
+//     } 
+//     res.render('realTimeProducts', testUser);
+//  })
+
+
+//  router.get("/chat", async (req, res) => {
+//    const messages = await  messageModel.find().lean();
+//     let testUser = {
+//      name: "Alejandra",
+//      messages
+//     }
+//     res.render('chat', testUser);
+//  })
+ 
  export default router;
 
 

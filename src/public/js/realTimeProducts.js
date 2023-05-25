@@ -67,7 +67,6 @@ document.getElementById('product-list').addEventListener('click', function(event
   // Si se encontró un botón de eliminación, obtener el ID del producto
   if (deleteButton) {
     const productId = deleteButton.getAttribute('data-product-id');
-    
     // Enviar la señal al servidor para eliminar el producto
     socket.emit('delete-product', productId);
   }
