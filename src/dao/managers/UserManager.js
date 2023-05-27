@@ -6,10 +6,18 @@ import userModel from '../models/users.js'
 
 export default class UserManager {
 
-    async getUser(email, password) {
-        // Buscar un producto por su id
+    async getUserById(id) {
         try {
-            const user = await userModel.findOne({email,password});
+           const user = await userService.findById(id);
+           return user
+        } catch (err) {
+            throw new Error("error");
+        }
+    }
+    async getUserByEmail(email) {
+        // Buscar un producto por su email
+        try {
+            const user = await userModel.findOne({email});
             return user 
         } catch (err) {
             throw new Error("error");
@@ -25,5 +33,15 @@ export default class UserManager {
         } catch (err) {
             throw new Error("error");
         }
+    }
+
+    async updateUser(id, newHashedPassword) {
+        try {
+            console.log("in manager");
+            await userModel.updateOne({_id:id},{$set:{password:newHashedPassword}});
+        } catch (err) {
+            throw new Error("Error al modificar")
+        }
+        
     }
 }

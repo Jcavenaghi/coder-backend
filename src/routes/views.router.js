@@ -98,6 +98,10 @@ router.get('/profile', privateAccess ,(req,res)=>{
   })
 })
 
+router.get('/resetPassword', (req,res)=>{
+  res.render('session/resetPassword');
+})
+
 //  router.get("/realtimeproducts",  async (req, res) => {
 //    const products = await  productModel.find().lean();
 //     let testUser = {

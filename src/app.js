@@ -5,6 +5,8 @@ import session from 'express-session';
 import mongoose from 'mongoose';
 import MongoStore from 'connect-mongo';
 
+import passport from 'passport';
+
 import { Server } from 'socket.io';
 
 
@@ -13,6 +15,7 @@ import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
 import sessionRouter from './routes/sessions.router.js'
+import initializePassport from './config/passport.config.js';
 
 
 // import ProductManager from "./manager/ProductManager.js";
@@ -82,6 +85,11 @@ app.use(session({
     resave:false,
     saveUninitialized: false
 }));
+
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
