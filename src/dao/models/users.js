@@ -23,11 +23,11 @@ const schema = new mongoose.Schema({
       password:{
         type: String,
         require: true
+      },
+      role: {
+        type: String,
+        default: 'USER'
       }
-    //   role: {
-    //     type: String,
-    //     default: 'user'
-    //   }
 });
 const cartModel = mongoose.model(collection,schema);
 export default cartModel;

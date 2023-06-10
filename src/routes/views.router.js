@@ -10,6 +10,7 @@ const router = express.Router();
 const manager = new ProductManager();
 const managerCart = new CartManager();
 
+
 const publicAccess = (req,res,next) =>{
   if(req.session.user) return res.redirect('/profile');
   next();
@@ -27,11 +28,6 @@ router.get("/products", privateAccess, async (req, res) => {
     const result = await manager.getProducts(sort, limit, page, query);
     const products = result.payload;
     const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
-    let role = "user"
-    if (req.session.user.email === "adminCoder@coder.com") {
-      role = "admin"
-     } else { role = "user" }
-    console.log(req.session.user);
     res.render('index', {
       products,
       hasPrevPage: result.hasPrevPage,
@@ -41,7 +37,7 @@ router.get("/products", privateAccess, async (req, res) => {
       page: result.page,
       query: linkQuerys,
       user: req.session.user,
-      role: role
+      role: result.role
     });
 
   } catch(error) {

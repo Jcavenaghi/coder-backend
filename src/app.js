@@ -14,7 +14,7 @@ import productsRouter from './routes/api/products.router.js';
 import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
-import sessionRouter from './routes/sessions.router.js'
+import SessionRouter from './routes/sessions.router.js'
 import initializePassport from './config/passport.config.js';
 
 
@@ -90,16 +90,11 @@ initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+const sessionRouter =  new SessionRouter()
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
-app.use('/api/session', sessionRouter);
-
-// app.get('/', (req,res)=>{
-//     req.session.user = 'Active Session';
-//     res.send('Session Set');
-// });
+app.use('/api/session', sessionRouter.getRouter());
 
 // app.get('/test', (req,res)=>{
 //     res.send(req.session.user);
