@@ -39,7 +39,7 @@ export default class SessionRouter extends Routers{
             res.cookie('coderCokie', token, {httpOnly:true}).send({status:"success", message:'Ingreso correcto', token})
         })
         this.get('/current', ["USER", "ADMIN"], passport.authenticate('jwt', {session:false}), (req,res)=>{
-            res.send(req.user);
+            res.send({status:"success", payload:req.user})
         })
         this.get('/faillogin', ["PUBLIC"], async (req,res)=>{
             console.log('Fallo en el ingreso');

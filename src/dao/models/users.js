@@ -27,7 +27,9 @@ const schema = new mongoose.Schema({
       role: {
         type: String,
         default: 'USER'
-      }
+      },
+      cart: { type: mongoose.Schema.Types.ObjectId, ref: 'Carts' },
+      
 });
 const cartModel = mongoose.model(collection,schema);
 export default cartModel;
