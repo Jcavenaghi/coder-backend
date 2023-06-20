@@ -9,7 +9,7 @@ import passport from 'passport';
 
 import { Server } from 'socket.io';
 
-
+import { config } from './config/config.js';
 import productsRouter from './routes/api/products.router.js';
 import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
@@ -28,8 +28,8 @@ import productModel from './dao/models/products.js';
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
 const messageManager = new MessageManager();
-
-const PORT = 8080;
+console.log(config)
+const PORT = config.server.port;
 
 const app = express();
 
@@ -60,7 +60,7 @@ const httpServer = app.listen(PORT, () => {
 // })
 
 /* Configuración de BD mongoose */
-const MONGO =  'mongodb+srv://joaquincavenaghi:d6HYWTvSJR6G4yjp@cluster0.ibr5hox.mongodb.net/ecommerce?retryWrites=true&w=majority';
+const MONGO = config.mongo.url;
 const connection = mongoose.connect(MONGO)
 
 

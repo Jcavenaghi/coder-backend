@@ -84,13 +84,9 @@ router.get('/login', publicAccess, (req,res)=>{
 })
 
 router.get('/profile', privateAccess ,(req,res)=>{
-  let role = "user"
-  if (req.session.user.email === "adminCoder@coder.com") {
-    role = "admin"
-   } else { role = "user" }
   res.render('session/profile',{
       user: req.session.user,
-      role: role
+      role: req.session.user.role
   })
 })
 

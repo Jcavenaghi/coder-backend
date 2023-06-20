@@ -3,9 +3,12 @@ import { Router } from "express";
 import cartModel from "../../dao/models/carts.js";
 import ManagerAccess from "../../dao/managers/ManagerAccess.js";
 import CartManager from "../../dao/managers/CartManager.js";
+import CartsController from "../../controllers/carts.controller.js";
+
 
 const router = Router();
 
+const cartsController = new CartsController();
 const cartManager = new CartManager();
 const managerAccess = new ManagerAccess();
 

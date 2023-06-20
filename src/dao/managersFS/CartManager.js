@@ -1,4 +1,5 @@
 import fs from 'fs';
+import cartsDao from '../fileSystemDAO/carts.dao.js';
 
 export default class CartManager {
     #privada
@@ -9,8 +10,7 @@ export default class CartManager {
     /* Metodos */
     consultarCarts = async () => {
         if (fs.existsSync(this.path)) {
-            const data = await fs.promises.readFile(this.path, 'utf-8');
-            const carts = JSON.parse(data);
+            const carts = cartsDao.getAllCarts(this.path);
             return carts;
         } else {
             return [];
@@ -18,18 +18,15 @@ export default class CartManager {
     }
     
     addCart = async () => {
-        const carts = await this.consultarCarts();
-        let cart = { id: this.#generarId(carts), products: []};
-        carts.push(cart);
-        await fs.promises.writeFile(this.path, JSON.stringify(carts, null, `\t`))
+        const cart = await cartsDao.addCart(this.path);
         return cart;
     }
 
     getProductsByCartId = async (id) => {
         const carts = await this.consultarCarts();
         if (carts.some (cart => cart.id === id)) {
-            let i = carts.findIndex(cart => cart.id === id)
-            return carts[i].products;
+            const products = cartsDao.getProductsByCartId(carts,id);
+            return products;
         } else {
             throw new Error("Not Found.")
         } 
@@ -38,28 +35,16 @@ export default class CartManager {
     addProductInCartByCartId = async (cid, pid) => {
         const carts = await this.consultarCarts();
         if (carts.some (cart => cart.id === cid)) {
-            let i = carts.findIndex(cart => cart.id === cid)
-            const cart =  carts[i];
+            const cart =  await cartsDao.getCartById(carts, cid)
             if (cart.products.some(item => item.id === pid)) {
-                let product = cart.products.find(item => item.id === pid)
-                product.quantity++;
+                const newCart = cartsDao.addExistingProduct(cart,pid,this.path)
             } else {
-                cart.products.push({"id": pid, "quantity": 1})
+                const newCart = cartsDao.addNewProduct(cart,pid,this.path)
             }
-            await fs.promises.writeFile(this.path, JSON.stringify(carts, null, `\t`))
+            return newCart;
         } else {
             throw new Error("Not Found.")
         } 
-    }
-
-    #generarId = (carts) => {
-        if (carts.length === 0) {
-            return 1
-        } else {
-            const code = carts[carts.length - 1].id + 1
-            return code
-        }
-
     }
 
 }

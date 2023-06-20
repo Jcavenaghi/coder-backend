@@ -6,12 +6,14 @@ import jwt from 'passport-jwt';
 import userService from '../dao/models/users.js'
 import UserManager from '../dao/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
+import CartManager from '../dao/managers/CartManager.js';
 
 
 const JWTStrategy = jwt.Strategy;
 const ExtractJWT = jwt.ExtractJwt;
 const LocalStrategy = local.Strategy;
 const userManager = new UserManager();
+const cartManager = new CartManager();
 
 const initializePassport = () => {
     const cookieExtractor = req =>{
@@ -43,12 +45,18 @@ const initializePassport = () => {
                     console.log('El usuario existe');
                     return done(null,false);
                 }
+                const products = []
+                const items = { products }
+                const cart = await cartManager.addCart(items)
+                console.log(cart._id);
                 const newUser = {
                     first_name, 
                     last_name, 
                     email, 
-                    age, 
+                    age,
+                    cart: cart._id, 
                     password: createHash(password)
+                    
                 }
 
                 const result = await userManager.createUser(newUser)

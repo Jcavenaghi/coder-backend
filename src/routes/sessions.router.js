@@ -2,7 +2,6 @@ import { Router } from 'express';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 
-import userModel from '../dao/models/users.js';
 import UserManager from '../dao/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
 import Routers from './router.js';
