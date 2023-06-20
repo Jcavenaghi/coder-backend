@@ -8,7 +8,7 @@ export default class ManagerAccess {
         const fecha = new Date().toLocaleDateString();
         const hora = new Date().toLocaleTimeString();
         const msg = `\nFecha: ${fecha} -  Hora: ${hora} - Metodo: ${metodo}`;
-        await fs.promises.appendFile( __dirname +'/dao/managers/log.txt',msg,(err)=>{
+        await fs.promises.appendFile( __dirname +'/dao/log.txt',msg,(err)=>{
             console.log(err);
             return err;
         })

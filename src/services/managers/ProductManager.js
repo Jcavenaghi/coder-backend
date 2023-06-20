@@ -2,14 +2,24 @@ import fs from 'fs'
 
 import __dirname from '../../utils.js';
 
-import productModel from '../models/products.js';
+import productModel from '../../dao/models/products.js';
 
 export default class ProductManager {
+
+    async addProduct(product) {
+        try {
+            const prod = await productModel.create(product)
+            return { prod }
+        } catch (err) {
+            throw new Error("error");
+        }
+    }
 
     async getProductById(pid) {
         // Buscar un producto por su id
         try {
             const prod = await productModel.findById(pid).lean();
+            console.log(prod)
             return { prod }
         } catch (err) {
             throw new Error("error");
@@ -63,6 +73,14 @@ export default class ProductManager {
         return result;
     }
 
+    updateProduct = async (id, data) => {
+        try {
+            const products = await productModel.updateOne({_id:id},{$set:data});
+            return products
+        } catch(err) {
+            throw new Error('Error'); 
+        }
+    }
     deleteProduct = async (id) => {
         await productModel.deleteOne({_id:id})
         const result = await productModel.find().lean();

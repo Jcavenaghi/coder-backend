@@ -4,9 +4,9 @@ import GitHubStrategy from 'passport-github2';
 import jwt from 'passport-jwt';
 
 import userService from '../dao/models/users.js'
-import UserManager from '../dao/managers/UserManager.js';
+import UserManager from '../services/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
-import CartManager from '../dao/managers/CartManager.js';
+import CartManager from '../services/managers/CartManager.js';
 
 
 const JWTStrategy = jwt.Strategy;

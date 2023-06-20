@@ -2,7 +2,7 @@ import fs from 'fs'
 
 import __dirname from '../../utils.js';
 
-import userModel from '../models/users.js'
+import userModel from '../../dao/models/users.js'
 
 export default class UserManager {
 

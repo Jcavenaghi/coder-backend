@@ -1,8 +1,8 @@
 import productModel from "../dao/models/products.js";
 import messageModel from "../dao/models/messages.js";
-import ProductManager from "../dao/managers/ProductManager.js";
+import ProductManager from "../services/managers/ProductManager.js";
 
-import CartManager from "../dao/managers/CartManager.js";
+import CartManager from "../services/managers/CartManager.js";
 
 import express  from "express";
 const router = express.Router();

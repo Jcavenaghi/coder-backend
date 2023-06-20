@@ -21,14 +21,13 @@ import initializePassport from './config/passport.config.js';
 // import ProductManager from "./manager/ProductManager.js";
 
 
-import ProductManager from './dao/managers/ProductManager.js';
-import MessageManager from './dao/managers/MessageManager.js';
+import ProductManager from './services/managers/ProductManager.js';
+import MessageManager from './services/managers/MessageManager.js';
 import productModel from './dao/models/products.js';
-
+console.log(config)
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
 const messageManager = new MessageManager();
-console.log(config)
 const PORT = config.server.port;
 
 const app = express();
