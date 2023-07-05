@@ -2,6 +2,8 @@
 import ManagerAccess from "../services/managers/ManagerAccess.js";
 import ProductManager from "../services/managers/ProductManager.js";
 
+import { productsService } from "../repository/index.js";
+
 const managerAccess = new ManagerAccess();
 const productManager = new ProductManager();
 
@@ -17,14 +19,15 @@ class ProductsController {
             })
         }
         const product = {title, description, code, price, stock, category}
-        const result = await productManager.addProduct(product)
+        const result = await productsService.createProduct(product);
         res.send(result);
     }
     getProducts = async (req, res) => {
         const { limit: limitStr = '10', page = 1, sort = 'n', query = 'n' }  = req.query;
         const limit = parseInt(limitStr);
         try {
-          const result = await manager.getProducts(sort, limit, page, query);
+          console.log("what? cannot GET?");
+          const result = await productsService.getProducts(sort, limit, page, query);
           const products = result.payload;
           const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
           res.render('index', {
@@ -46,8 +49,7 @@ class ProductsController {
     getProduct = async (req, res) => {
         await managerAccess.crearRegistro('Consulta un solo producto');
         const id = req.params.pid;
-        const result = await productManager.getProductById(id)
-        console.log(result)
+        const result = await productsService.getProduct(id);
         res.send({result})
     }
 
@@ -55,14 +57,14 @@ class ProductsController {
         await managerAccess.crearRegistro('Actualiza un producto');
         const id = req.params.pid;
         const data = req.body;
-        const result = productManager.updateProduct(id, data)
+        const result = productsService.updateProduct(id, data)
         res.send({result});
     }
 
     deleteProduct = async (req, res) => {
         await managerAccess.crearRegistro('Elimina un producto');
         const id = req.params.pid;
-        const result = await productManager.deleteProduct(id);
+        const result = await productsService.deleteProduct(id);
         res.send({result})
     }
 }

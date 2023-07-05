@@ -1,6 +1,6 @@
 import ManagerAccess from "../services/managers/ManagerAccess.js";
 import CartManager from "../services/managers/CartManager.js";
-
+import { cartService } from "../repository/index.js";
 const cartManager = new CartManager();
 const managerAccess = new ManagerAccess();
 
@@ -9,7 +9,7 @@ class CartsController {
         const id = req.params.cid;
         await managerAccess.crearRegistro(`Consulta carrito ${id}`);
         try {
-            const result = await cartManager.getCart(id);
+            const result = await cartService.getCart(id);
             res.send({result})    
         } catch (error) {
             res.status(400).send({status:"error", error: `${error}`} )
@@ -21,7 +21,7 @@ class CartsController {
         const products = []
         const items = { products }
         try {
-            const result = await cartManager.addCart(items)
+            const result = await cartService.createCart(items)
             return res.send(result);
         } catch (error) {
             res.status(400).send({status:"error", error: `${error}`})
@@ -32,7 +32,7 @@ class CartsController {
         let pid = req.params.pid;
         await managerAccess.crearRegistro(`borrar producto: ${pid} del carrito: ${cid}`);
         try {
-            const result = await cartManager.deleteProduct(cid,pid);
+            const result = await cartService.deleteProduct(cid,pid);
             res.send(result);
         } catch (error) {
             res.status(400).send({status:"error", error: `${error}`})
@@ -43,7 +43,7 @@ class CartsController {
         let cid = req.params.cid;
         await managerAccess.crearRegistro(`borrar productos del carrito: ${cid}`);
         try {
-            const result = await cartManager.deleteAllProducts(cid);
+            const result = await cartService.deleteAllProducts(cid);
             res.send(result);
         } catch (error) {
             res.status(400).send({status:"error", error: `${error}`})
@@ -55,7 +55,7 @@ class CartsController {
         const products = req.body.products;
         await managerAccess.crearRegistro(`agregar productos al carrito: ${cid}`);
         try {
-            const result = await cartManager.addProducts(cid, products);
+            const result = await cartService.addProducts(cid, products);
             res.send(result);
     
         } catch(error) {
@@ -69,7 +69,7 @@ class CartsController {
         await managerAccess.crearRegistro(`agregar producto: ${pid} al carrito: ${cid}`);
         
         try {
-            const result = await cartManager.addProduct(cid,pid);
+            const result = await cartService.addOneProduct(cid,pid);
             res.send(result);
         } catch(error) {
             res.status(400).send({status:"error", error: `${error}`}); 
@@ -82,7 +82,7 @@ class CartsController {
         const quantity = req.body.quantity;
         await managerAccess.crearRegistro(`agregar cantidad: ${quantity} al producto: ${pid} del carrito: ${cid}`);
         try {
-            const result = await cartManager.updateCartById(cid,pid,quantity);
+            const result = await cartService.addQuantityOfProduct(cid,pid,quantity);
             res.send(result);
         } catch (error) {
             res.status(400).send({status:"error", error: `${error}`}); 

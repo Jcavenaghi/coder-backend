@@ -8,7 +8,7 @@ export default class UserManager {
 
     async getUserById(id) {
         try {
-           const user = await userService.findById(id);
+           const user = await userModel.findById(id);
            return user
         } catch (err) {
             throw new Error("error");
