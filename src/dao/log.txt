@@ -1,0 +1,33 @@
+
+
+Fecha: 20/6/2023 -  Hora: 14:27:07 - Metodo: agregar producto: 645d8b1283bf26aa33a03b76 al carrito: 645d6da64cf9da512c34ecbc
+Fecha: 20/6/2023 -  Hora: 14:27:14 - Metodo: agregar carrito
+Fecha: 20/6/2023 -  Hora: 14:27:19 - Metodo: agregar cantidad: 6 al producto: 645d8b1283bf26aa33a03b76 del carrito: 645d6da64cf9da512c34ecbc
+Fecha: 20/6/2023 -  Hora: 14:27:22 - Metodo: Consulta carrito 646241956ee9abd17719e473
+Fecha: 20/6/2023 -  Hora: 14:27:26 - Metodo: agregar productos al carrito: 646241956ee9abd17719e473
+Fecha: 20/6/2023 -  Hora: 14:27:30 - Metodo: Consulta carrito 646241956ee9abd17719e473
+Fecha: 20/6/2023 -  Hora: 14:27:38 - Metodo: borrar productos del carrito: 645d6da64cf9da512c34ecbc
+Fecha: 20/6/2023 -  Hora: 14:44:16 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:44:24 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:44:29 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:44:54 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:45:15 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:45:44 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:46:14 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:46:28 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:47:01 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:47:26 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:48:30 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:48:42 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:48:49 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:50:15 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:51:00 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:51:06 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:52:07 - Metodo: GET
+Fecha: 20/6/2023 -  Hora: 14:54:09 - Metodo: Consulta un solo producto
+Fecha: 20/6/2023 -  Hora: 14:54:14 - Metodo: Consulta un solo producto
+Fecha: 20/6/2023 -  Hora: 15:04:11 - Metodo: POST
+Fecha: 20/6/2023 -  Hora: 15:05:42 - Metodo: POST
+Fecha: 20/6/2023 -  Hora: 15:09:41 - Metodo: Actualiza un usuario
+Fecha: 20/6/2023 -  Hora: 15:10:06 - Metodo: Actualiza un producto
+Fecha: 20/6/2023 -  Hora: 15:10:21 - Metodo: Actualiza un producto

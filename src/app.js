@@ -9,27 +9,26 @@ import passport from 'passport';
 
 import { Server } from 'socket.io';
 
-
+import { config } from './config/config.js';
 import productsRouter from './routes/api/products.router.js';
 import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
-import SessionRouter from './routes/sessions.router.js'
+import sessionRouter from './routes/sessions.router.js'
 import initializePassport from './config/passport.config.js';
 
 
 // import ProductManager from "./manager/ProductManager.js";
 
 
-import ProductManager from './dao/managers/ProductManager.js';
-import MessageManager from './dao/managers/MessageManager.js';
+import ProductManager from './services/managers/ProductManager.js';
+import MessageManager from './services/managers/MessageManager.js';
 import productModel from './dao/models/products.js';
 
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
 const messageManager = new MessageManager();
-
-const PORT = 8080;
+const PORT = config.server.port;
 
 const app = express();
 
@@ -60,7 +59,7 @@ const httpServer = app.listen(PORT, () => {
 // })
 
 /* Configuración de BD mongoose */
-const MONGO =  'mongodb+srv://joaquincavenaghi:d6HYWTvSJR6G4yjp@cluster0.ibr5hox.mongodb.net/ecommerce?retryWrites=true&w=majority';
+const MONGO = config.mongo.url;
 const connection = mongoose.connect(MONGO)
 
 
@@ -90,11 +89,10 @@ initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
 
-const sessionRouter =  new SessionRouter()
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
-app.use('/api/session', sessionRouter.getRouter());
+app.use('/api/session', sessionRouter);
 
 // app.get('/test', (req,res)=>{
 //     res.send(req.session.user);

@@ -43,6 +43,7 @@ export default class Routers{
     handlePolicies = policies => (req,res,next) =>{
         //policies = ['PUBLIC', 'PRIVATE', 'PREMIUM']
         if(policies[0] === "PUBLIC") return next()
+        console.log(req.headers);
         const authHeaders = req.headers.authorization;
         if(!authHeaders) return res.status(401).send('Sin token de seguridad');
 

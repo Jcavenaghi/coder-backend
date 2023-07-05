@@ -4,35 +4,17 @@ import GitHubStrategy from 'passport-github2';
 import jwt from 'passport-jwt';
 
 import userService from '../dao/models/users.js'
-import UserManager from '../dao/managers/UserManager.js';
+import UserManager from '../services/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
+import CartManager from '../services/managers/CartManager.js';
 
 
-const JWTStrategy = jwt.Strategy;
-const ExtractJWT = jwt.ExtractJwt;
+
 const LocalStrategy = local.Strategy;
 const userManager = new UserManager();
+const cartManager = new CartManager();
 
 const initializePassport = () => {
-    const cookieExtractor = req =>{
-        let token = null;
-        if(req && req.cookies){
-            token = req.cookies['coderCokie']
-            console.log('Token CookieExtractor: ' + token)
-        }
-        return token;
-    }
-    passport.use('jwt', new JWTStrategy({
-        jwtFromRequest:ExtractJWT.fromExtractors([cookieExtractor]),
-        secretOrKey:'coderSecret'
-    },
-    async (jwt_payload,done)=>{
-        try {
-            return done(null,jwt_payload);
-        } catch (error) {
-            return done(error);
-        }
-    }) );
     passport.use('register', new LocalStrategy(
         {passReqToCallback:true, usernameField:'email'}, 
         async (req,username, password,done) =>{
@@ -43,14 +25,18 @@ const initializePassport = () => {
                     console.log('El usuario existe');
                     return done(null,false);
                 }
+                const products = []
+                const items = { products }
+                const cart = await cartManager.addCart(items)
                 const newUser = {
                     first_name, 
                     last_name, 
                     email, 
-                    age, 
+                    age,
+                    cart: cart._id, 
                     password: createHash(password)
+                    
                 }
-
                 const result = await userManager.createUser(newUser)
                 return done(null, result);
 
@@ -63,11 +49,11 @@ const initializePassport = () => {
         done(null, user._id)
     });
     passport.deserializeUser( async (id, done)=>{
-        const user = await userService.findById(id)
+        const user = await userService.findById(id);
         done(null, user)
     });
-    passport.use('login', new LocalStrategy({usernameField:'email'}, async (username, password, done)=>{
 
+    passport.use('login', new LocalStrategy({usernameField:'email'}, async (username, password, done)=>{
         try {
            
             const user = await userManager.getUserByEmail(username);
@@ -77,11 +63,8 @@ const initializePassport = () => {
             }
             if(!validatePassword(password,user)) return done (null, false);
             return done(null,user);
-
         } catch (error) {
-            
             return done("Error al intentar ingresar: " + error);
-            
         }
 
     }));

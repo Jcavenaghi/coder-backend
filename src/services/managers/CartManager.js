@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 import __dirname from '../../utils.js';
-import cartModel from '../models/carts.js';
+import cartModel from '../../dao/models/carts.js';
 
 export default class CartManager {
 

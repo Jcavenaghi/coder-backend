@@ -2,7 +2,7 @@ import fs from 'fs'
 
 import __dirname from '../../utils.js';
 
-import messageModel from '../models/messages.js';
+import messageModel from '../../dao/models/messages.js';
 
 
 export default class MessageManager {
