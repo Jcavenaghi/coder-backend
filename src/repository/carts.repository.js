@@ -25,8 +25,7 @@ export class CartRepository{
 
     async getCart(id){
         const cart = await this.dao.getCart(id);
-        const cartDto = new GetCartDto(cart);
-        return cartDto;
+        return cart;
     };
 
     async deleteAllProducts(cid) {

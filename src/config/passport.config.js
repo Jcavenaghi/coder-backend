@@ -2,7 +2,7 @@ import passport from 'passport';
 import local from 'passport-local';
 import GitHubStrategy from 'passport-github2';
 import jwt from 'passport-jwt';
-
+import { config } from './config.js';
 import userService from '../dao/models/users.js'
 import UserManager from '../services/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
@@ -70,12 +70,11 @@ const initializePassport = () => {
     }));
 
     passport.use('github', new GitHubStrategy({
-        clientID:'Iv1.679776f797450942',
-        clientSecret:'a949562895bf7ad51dc18a6524169a37eec885e5',
+        clientID: config.github.clientId,
+        clientSecret:config.github.clientSecret,
         callbackURL:'http://localhost:8080/api/session/githubcallback'
     }, async (accesToken, refreshToken, profile, done)=>{
         try {
-            console.log(profile); //vemos la info que nos da GitHub
             const user = await userManager.getUserByEmail(profile._json.email)
             if(!user){
                 const email = profile._json.email == null ?  profile._json.username : null;

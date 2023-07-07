@@ -1,6 +1,6 @@
 <div class="container-fluid">
-    <h1>Bienvenido {{user.first_name}}, rol: "{{role}}" </h1>
-    <div class="row mt-4">
+    <h1>Bienvenido {{user.first_name}}, rol: "{{cartId}}" </h1>
+    <div class="row mt-4 container2" data-cartId="{{cartId}}">
         {{#each products}}
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">

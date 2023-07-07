@@ -9,13 +9,16 @@ import passport from 'passport';
 
 import { Server } from 'socket.io';
 
+import path from "path"
 import { config } from './config/config.js';
+import { transporter } from './config/gmail_config.js';
 import productsRouter from './routes/api/products.router.js';
 import cartsRouter from './routes/api/carts.router.js';
 import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
 import sessionRouter from './routes/sessions.router.js'
 import initializePassport from './config/passport.config.js';
+import { twilioClient, twilioPhone } from './config/twilio_config.js';
 
 
 // import ProductManager from "./manager/ProductManager.js";
@@ -28,7 +31,7 @@ import productModel from './dao/models/products.js';
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
 const messageManager = new MessageManager();
-const PORT = config.server.port;
+const PORT = config.server.port || 8080;
 
 const app = express();
 
@@ -94,139 +97,58 @@ app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
 app.use('/api/session', sessionRouter);
 
-// app.get('/test', (req,res)=>{
-//     res.send(req.session.user);
+// const emailTemplate = `<div>
+// <h1>Bienvenido!!</h1>
+// <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/portals_3/2x1_SuperMarioHub.jpg" style="width:250px"/>
+// <p>Ya puedes empezar a usar nuestros servicios</p>
+// <img width="100%" src="cid:data"/>
+// <a href="https://www.google.com/">Explorar</a>
+// </div>`;
+
+// app.post("/registro", async (req,res)=>{
+//     try {
+//         const contenido = await transporter.sendMail({
+//             from:"Ecommerce tienda La Nueva",
+//             to:"joaquincavenaghi@gmail.com",
+//             subject:"Registro exitoso",
+//             html: emailTemplate,
+//             attachments:[
+//                 {
+//                     filename: 'data.jpg',
+//                     path: path.join(__dirname,"/images/data.jpg"),
+//                     cid:"data"
+//                 },
+//                 {
+//                     filename:"factura.pdf",
+//                     path: path.join(__dirname,"images/factura.pdf")
+//                 }
+//             ]
+//         })
+//         console.log("contenido", contenido);
+//         res.json({status:"sucess", message: "Registo y envio de correo."})
+//     } catch (error) {
+//         console.log(error.message);
+//         res.json({status:"error", message: "Hubo un error al registrar al usuario."})
+//     }   
 // })
 
-
-
-// const environment = async () => {
-//     const perfumes = [
-//         {
-//           title: 'Azzaro Wanted',
-//           description: '100 ml',
-//           code: 22,
-//           price: 120,
-//           status: true,
-//           stock: 85,
-//           category: 'Amaderado'
-//         },
-//         {
-//           title: 'Carolina Herrera 212 VIP Men',
-//           description: '200 ml',
-//           code: 36,
-//           price: 150,
-//           status: true,
-//           stock: 70,
-//           category: 'Oriental'
-//         },
-//         {
-//           title: 'Jean Paul Gaultier Le Male',
-//           description: '125 ml',
-//           code: 11,
-//           price: 100,
-//           status: true,
-//           stock: 110,
-//           category: 'Fougère'
-//         },
-//         {
-//           title: 'Paco Rabanne Invictus',
-//           description: '100 ml',
-//           code: 47,
-//           price: 90,
-//           status: true,
-//           stock: 95,
-//           category: 'Amaderado Acuático'
-//         },
-//         {
-//           title: 'Versace Eros',
-//           description: '100 ml',
-//           code: 3,
-//           price: 110,
-//           status: true,
-//           stock: 150,
-//           category: 'Oriental'
-//         },
-//         {
-//           title: 'Giorgio Armani Acqua di Gio',
-//           description: '100 ml',
-//           code: 29,
-//           price: 120,
-//           status: true,
-//           stock: 80,
-//           category: 'Acuático'
-//         },
-//         {
-//           title: 'Dior Sauvage',
-//           description: '200 ml',
-//           code: 41,
-//           price: 150,
-//           status: true,
-//           stock: 60,
-//           category: 'Amaderado'
-//         },
-//         {
-//           title: 'Calvin Klein Eternity for Men',
-//           description: '100 ml',
-//           code: 16,
-//           price: 80,
-//           status: true,
-//           stock: 120,
-//           category: 'Fresco'
-//         },
-//         {
-//           title: 'Ralph Lauren Polo Red',
-//           description: '125 ml',
-//           code: 26,
-//           price: 100,
-//           status: true,
-//           stock: 90,
-//           category: 'Amaderado'
-//         },
-//         {
-//           title: 'Hugo Boss Bottled',
-//           description: '100 ml',
-//           code: 8,
-//           price: 85,
-//           status: true,
-//           stock: 140,
-//           category: 'Oriental'
-//         },
-//         {
-//           title: 'Bvlgari Man in Black',
-//           description: '100 ml',
-//           code: 15,
-//           price: 120,
-//           status: true,
-//           stock: 75,
-//           category: 'Oriental Amaderado'
-//         },
-//         {
-//           title: 'Montblanc Legend',
-//           description: '100 ml',
-//           code: 42,
-//           price: 90,
-//           status: true,
-//           stock: 100,
-//           category: 'Fougère'
-//         },
-//         {
-//           title: 'Yves Saint Laurent L\'Homme',
-//           description: '100 ml',
-//           code: 9,
-//           price: 110,
-//           status: true,
-//           stock: 95,
-//           category: 'Fresco'
-//         },
+// app.post("/compra", async (req, res)=>{
+//     try {
         
-//     ]
-//     productModel.insertMany(perfumes)
-//     .then((createdProducts) => {
-//       console.log(`Created ${createdProducts.length} products`);
-//     })
-//     .catch((err) => console.log(err));
-// }
+//         const {nombre, producto} = req.query;
 
+//         //creamos el mensaje
+//         const message = await twilioClient.messages.create({
+//             body: `Gracias ${nombre}, su producto ${producto} esta en camino.`,
+//             from: twilioPhone,
+//             to: "+54 2241 470254"
+//         })
+//         console.log("Message:", message);
+//         res.json({status:"success", message:"Compra en camino"})
 
-// environment();
+//     } catch (error) {
+//         console.log(error.message);
+//         res.json({status:"error", message: "Hubo un error al realizar la compra."})
+
+//     }
+// })

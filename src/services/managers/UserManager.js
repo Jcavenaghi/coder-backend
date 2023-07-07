@@ -28,7 +28,6 @@ export default class UserManager {
     async createUser(user) {
         try {
             const result = await userModel.create(user);
-            console.log(result);
             return result
         } catch (err) {
             throw new Error("error");
@@ -37,7 +36,6 @@ export default class UserManager {
 
     async updateUser(id, newHashedPassword) {
         try {
-            console.log("in manager");
             await userModel.updateOne({_id:id},{$set:{password:newHashedPassword}});
         } catch (err) {
             throw new Error("Error al modificar")

@@ -1,3 +1,4 @@
+import { GetUserDto } from "../dao/dto/user.dto.js";
 class SessionController {
     register = async(req,res) =>{
         res.send({status:"succes", message:"User registered"});
@@ -27,7 +28,9 @@ class SessionController {
     }
 
     current = (req,res)=>{
-        res.send({status:"success", payload:req.user})
+        // loguearse para obtenerlo
+        const user = new GetUserDto(req.user);
+        res.send({status:"success", user})
     }
 
     logout = (req,res)=>{
@@ -42,7 +45,6 @@ class SessionController {
         if(!email || !password ) return res.status(400).send({status:"error", error:"Datos incorrectos"})
         try {
             const user = await userManger.getUserByEmail(email);
-            console.log(user);
             const newHashedPassword = createHash(password);
             await userManger.updateUser(user._id, newHashedPassword);
             res.send({status:"success", message:"Contraseña actualizada"})

@@ -19,7 +19,6 @@ export default class ProductManager {
         // Buscar un producto por su id
         try {
             const prod = await productModel.findById(pid).lean();
-            console.log(prod)
             return { prod }
         } catch (err) {
             throw new Error("error");
@@ -81,6 +80,7 @@ export default class ProductManager {
             throw new Error('Error'); 
         }
     }
+    
     deleteProduct = async (id) => {
         await productModel.deleteOne({_id:id})
         const result = await productModel.find().lean();

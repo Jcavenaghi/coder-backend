@@ -20,13 +20,12 @@ class ProductsController {
         }
         const product = {title, description, code, price, stock, category}
         const result = await productsService.createProduct(product);
-        res.send(result);
+        res.send({status:"sucess", result});
     }
     getProducts = async (req, res) => {
         const { limit: limitStr = '10', page = 1, sort = 'n', query = 'n' }  = req.query;
         const limit = parseInt(limitStr);
         try {
-          console.log("what? cannot GET?");
           const result = await productsService.getProducts(sort, limit, page, query);
           const products = result.payload;
           const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
@@ -50,7 +49,7 @@ class ProductsController {
         await managerAccess.crearRegistro('Consulta un solo producto');
         const id = req.params.pid;
         const result = await productsService.getProduct(id);
-        res.send({result})
+        res.send({status:"sucess", result});
     }
 
     updateProduct = async (req, res) => {
@@ -58,14 +57,14 @@ class ProductsController {
         const id = req.params.pid;
         const data = req.body;
         const result = productsService.updateProduct(id, data)
-        res.send({result});
+        res.send({status:"sucess", result});
     }
 
     deleteProduct = async (req, res) => {
         await managerAccess.crearRegistro('Elimina un producto');
         const id = req.params.pid;
         const result = await productsService.deleteProduct(id);
-        res.send({result})
+        res.send({status:"sucess", result});
     }
 }
 

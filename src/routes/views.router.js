@@ -3,6 +3,7 @@ import messageModel from "../dao/models/messages.js";
 import ProductManager from "../services/managers/ProductManager.js";
 
 import CartManager from "../services/managers/CartManager.js";
+import { checkRole } from "../middlewares/auth.js";
 
 import express  from "express";
 const router = express.Router();
@@ -21,12 +22,13 @@ const privateAccess = (req,res,next)=>{
   next();
 }
 
-router.get("/products", privateAccess, async (req, res) => {
+router.get("/products", async (req, res) => {
   const { limit: limitStr = '10', page = 1, sort = 'n', query = 'n' }  = req.query;
   const limit = parseInt(limitStr);
   try {
     const result = await manager.getProducts(sort, limit, page, query);
     const products = result.payload;
+    console.log(req.user.cart);
     const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
     res.render('index', {
       products,
@@ -37,7 +39,8 @@ router.get("/products", privateAccess, async (req, res) => {
       page: result.page,
       query: linkQuerys,
       user: req.session.user,
-      role: result.role
+      role: result.role,
+      cartId: req.user.cart
     });
 
   } catch(error) {
@@ -46,7 +49,7 @@ router.get("/products", privateAccess, async (req, res) => {
  })
 
 
- router.get("/products/:pid", privateAccess, async (req, res) => {
+ router.get("/products/:pid", async (req, res) => {
   const pid = req.params.pid;
   try {
     const result = await manager.getProductById(pid);
@@ -58,7 +61,7 @@ router.get("/products", privateAccess, async (req, res) => {
 
 
  /* vistas del carrito */
-router.get("/carts/:cid", privateAccess, async (req, res) => {
+router.get("/carts/:cid", checkRole(["USER"]), async (req, res) => {
   const cid = req.params.cid;
   try {
     const result = await managerCart.getCart(cid);
@@ -83,14 +86,14 @@ router.get('/login', publicAccess, (req,res)=>{
   res.render('session/login')
 })
 
-router.get('/profile', privateAccess ,(req,res)=>{
+router.get('/profile', checkRole(["USER", "ADMIN"]) ,(req,res)=>{
   res.render('session/profile',{
       user: req.session.user,
       role: req.session.user.role
   })
 })
 
-router.get('/resetPassword', (req,res)=>{
+router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
   res.render('session/resetPassword');
 })
 
