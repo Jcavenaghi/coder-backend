@@ -107,14 +107,14 @@ router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
 //  })
 
 
-//  router.get("/chat", async (req, res) => {
-//    const messages = await  messageModel.find().lean();
-//     let testUser = {
-//      name: "Alejandra",
-//      messages
-//     }
-//     res.render('chat', testUser);
-//  })
+ router.get("/chat", checkRole(["USER"]), async (req, res) => {
+   const messages = await  messageModel.find().lean();
+    let testUser = {
+     name: "Alejandra",
+     messages
+    }
+    res.render('chat', testUser);
+ })
  
  export default router;
 
