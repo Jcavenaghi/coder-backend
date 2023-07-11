@@ -7,6 +7,9 @@ import userService from '../dao/models/users.js'
 import UserManager from '../services/managers/UserManager.js';
 import { createHash, validatePassword } from '../utils.js';
 import CartManager from '../services/managers/CartManager.js';
+import { CustomError } from "../services/customError.service.js";
+import { EError } from "../enums/EError.js";
+import { generateUserErrorInfo } from "../services/userErrors/userErrorInfo.js"
 
 
 
@@ -20,6 +23,14 @@ const initializePassport = () => {
         async (req,username, password,done) =>{
             const { first_name, last_name, email,age } = req.body;
             try {
+                if (!first_name || !last_name || !email) {
+                    CustomError.createError({
+                        name: "User create Error",
+                        cause: generateUserErrorInfo(req.body),
+                        message: "Error creando el usuario",
+                        errorCode: EError.INVALID_JSON
+                    })
+                }
                 const user = await userManager.getUserByEmail(username); 
                 if(user){
                     console.log('El usuario existe');

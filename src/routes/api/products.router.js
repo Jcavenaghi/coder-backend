@@ -17,4 +17,6 @@ router.put("/:pid", checkRole(["ADMIN"]), productsController.updateProduct);
 
 router.delete("/:pid", checkRole(["ADMIN"]), productsController.deleteProduct);
 
+router.post("/mockingproducts", checkRole(["ADMIN"]), productsController.createProductsWithMocking);
+
 export default router;

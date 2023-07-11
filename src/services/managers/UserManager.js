@@ -11,7 +11,7 @@ export default class UserManager {
            const user = await userModel.findById(id);
            return user
         } catch (err) {
-            throw new Error("error");
+            throw new Error(`error al obtener un usuario mediante el id ${id}: ` + err.message);
         }
     }
     async getUserByEmail(email) {
@@ -20,7 +20,7 @@ export default class UserManager {
             const user = await userModel.findOne({email});
             return user 
         } catch (err) {
-            throw new Error("error");
+            throw new Error(`error al obtener un usuario mediante el mail ${email}: ` + err.message);
         }
 
     };
@@ -30,7 +30,7 @@ export default class UserManager {
             const result = await userModel.create(user);
             return result
         } catch (err) {
-            throw new Error("error");
+            throw new Error("error al crear usuario: " + err.message);
         }
     }
 
@@ -38,7 +38,7 @@ export default class UserManager {
         try {
             await userModel.updateOne({_id:id},{$set:{password:newHashedPassword}});
         } catch (err) {
-            throw new Error("Error al modificar")
+            throw new Error("Error al modificar: " + err.message);
         }
         
     }

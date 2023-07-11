@@ -148,3 +148,25 @@ Fecha: 6/7/2023 -  Hora: 16:05:06 - Metodo: agregar producto: 645d6da04cf9da512c
 Fecha: 6/7/2023 -  Hora: 21:52:59 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
 Fecha: 6/7/2023 -  Hora: 21:56:48 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
 Fecha: 6/7/2023 -  Hora: 21:58:19 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
+Fecha: 11/7/2023 -  Hora: 13:54:52 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 14:00:32 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 14:01:12 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 14:01:59 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 14:02:48 - Metodo: Actualiza un producto
+Fecha: 11/7/2023 -  Hora: 14:02:55 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 14:04:17 - Metodo: Actualiza un producto
+Fecha: 11/7/2023 -  Hora: 14:04:26 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 14:51:28 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 14:52:36 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 14:53:29 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 14:53:55 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 14:56:45 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:03:17 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:25:57 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:26:01 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:28:26 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:28:46 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 15:30:07 - Metodo: POST
+Fecha: 11/7/2023 -  Hora: 16:04:58 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 16:06:11 - Metodo: Consulta un solo producto
+Fecha: 11/7/2023 -  Hora: 16:06:49 - Metodo: Consulta un solo producto

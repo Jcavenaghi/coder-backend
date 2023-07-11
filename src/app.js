@@ -27,6 +27,8 @@ import { twilioClient, twilioPhone } from './config/twilio_config.js';
 import ProductManager from './services/managers/ProductManager.js';
 import MessageManager from './services/managers/MessageManager.js';
 import productModel from './dao/models/products.js';
+import compression from 'express-compression';
+import { errorHandler } from "./middlewares/errorHandler.js"
 
 // const manager = new ProductManager("src/data/products.json");
 const manager = new ProductManager();
@@ -92,11 +94,15 @@ app.use(session({
 initializePassport();
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(compression({
+    brotli:{enable:true, zlib:{}}
+}));
 
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
 app.use('/api/session', sessionRouter);
+app.use(errorHandler);
 
 // const emailTemplate = `<div>
 // <h1>Bienvenido!!</h1>
