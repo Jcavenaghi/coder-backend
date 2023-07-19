@@ -21,9 +21,9 @@ const initializePassport = () => {
     passport.use('register', new LocalStrategy(
         {passReqToCallback:true, usernameField:'email'}, 
         async (req,username, password,done) =>{
-            const { first_name, last_name, email,age } = req.body;
+            const { first_name, last_name, email,age} = req.body;
             try {
-                if (!first_name || !last_name || !email) {
+                if (!first_name || !last_name || !email || !age || !password) {
                     CustomError.createError({
                         name: "User create Error",
                         cause: generateUserErrorInfo(req.body),
@@ -33,7 +33,7 @@ const initializePassport = () => {
                 }
                 const user = await userManager.getUserByEmail(username); 
                 if(user){
-                    console.log('El usuario existe');
+                    req.logger.warning("el usuario ya existe")
                     return done(null,false);
                 }
                 const products = []

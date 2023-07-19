@@ -20,8 +20,10 @@ class CartsController {
         await managerAccess.crearRegistro(`Consulta carrito ${id}`);
         try {
             const result = await cartService.getCart(id);
+            req.logger.info(`se obtuvo el carrito ${id}`)
             res.send({status:"success", result});  
         } catch (error) {
+            req.logger.warning(`no puedo obtenerse el carrito ${id}`)
             res.status(400).send({status:"error", error: `${error}`} )
         };
     }
@@ -32,8 +34,10 @@ class CartsController {
         const items = { products }
         try {
             const result = await cartService.createCart(items)
+            req.logger.info(`se agrego el carrito`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.warning(`error al agregar el carrito`)
             res.status(400).send({status:"error", error: `${error}`})
         }
     }
@@ -43,8 +47,10 @@ class CartsController {
         await managerAccess.crearRegistro(`borrar producto: ${pid} del carrito: ${cid}`);
         try {
             const result = await cartService.deleteProduct(cid,pid);
+            req.logger.info(`se borro el producto ${pid} del carrito ${cid}`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.info(`Error al borrar el producto.`)
             res.status(400).send({status:"error", error: `${error}`})
         }
     }
@@ -54,8 +60,10 @@ class CartsController {
         await managerAccess.crearRegistro(`borrar productos del carrito: ${cid}`);
         try {
             const result = await cartService.deleteAllProducts(cid);
+            req.logger.info(`se elimino el carrito ${cid}`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.warning(`error al borrar el carrito ${cid}`)
             res.status(400).send({status:"error", error: `${error}`})
         }
     }
@@ -66,9 +74,11 @@ class CartsController {
         await managerAccess.crearRegistro(`agregar productos al carrito: ${cid}`);
         try {
             const result = await cartService.addProducts(cid, products);
+            req.logger.info(`se añadieron correctamente los productos al carrito ${cid}`)
             res.send({status:"sucess", result});
     
         } catch(error) {
+            req.logger.warning(`error al añadir al carrito`)
             res.status(400).send({status:"error", error: `${error}`}); 
         };
     }
@@ -80,8 +90,10 @@ class CartsController {
         
         try {
             const result = await cartService.addOneProduct(cid,pid);
+            req.logger.info(`se añadio el producto ${pid} al carrito ${cid}`)
             res.send({status:"sucess", result});
         } catch(error) {
+            req.logger.warning(`error al añadir`)
             res.status(400).send({status:"error", error: `${error}`}); 
         };
     }
@@ -93,8 +105,10 @@ class CartsController {
         await managerAccess.crearRegistro(`agregar cantidad: ${quantity} al producto: ${pid} del carrito: ${cid}`);
         try {
             const result = await cartService.addQuantityOfProduct(cid,pid,quantity);
+            req.logger.info(`se añadieron ${quantity} productos de ${pid} al carrito ${cid}`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.warning(`Error al añadir`)
             res.status(400).send({status:"error", error: `${error}`}); 
         }
                 

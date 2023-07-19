@@ -4,6 +4,7 @@ import ProductManager from "../services/managers/ProductManager.js";
 
 import CartManager from "../services/managers/CartManager.js";
 import { checkRole } from "../middlewares/auth.js";
+import { addLogger } from "../utils/logger.js";
 
 import express  from "express";
 const router = express.Router();
@@ -78,12 +79,21 @@ router.get('/register', publicAccess, (req,res)=>{
   res.render('session/register')
 })
 
+router.get('/failregister', (req,res) => {
+  res.render('session/failRegister')
+})
+
+
 router.get('/', publicAccess, (req,res)=>{
   res.render('session/login')
 })
 
 router.get('/login', publicAccess, (req,res)=>{
   res.render('session/login')
+})
+
+router.get('/faillogin', (req,res) => {
+  res.render('session/failLogin')
 })
 
 router.get('/profile', checkRole(["USER", "ADMIN"]) ,(req,res)=>{

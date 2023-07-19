@@ -18,15 +18,11 @@ import viewRouter from './routes/views.router.js';
 import __dirname from './utils.js';
 import sessionRouter from './routes/sessions.router.js'
 import initializePassport from './config/passport.config.js';
-import { twilioClient, twilioPhone } from './config/twilio_config.js';
 
 
-// import ProductManager from "./manager/ProductManager.js";
-
-
+import { addLogger } from "./utils/logger.js"
 import ProductManager from './services/managers/ProductManager.js';
 import MessageManager from './services/managers/MessageManager.js';
-import productModel from './dao/models/products.js';
 import compression from 'express-compression';
 import { errorHandler } from "./middlewares/errorHandler.js"
 
@@ -97,65 +93,20 @@ app.use(passport.session());
 app.use(compression({
     brotli:{enable:true, zlib:{}}
 }));
-
+app.use(addLogger);
 app.use('/api/products/', productsRouter);
 app.use('/api/carts/', cartsRouter);
 app.use('/', viewRouter);
 app.use('/api/session', sessionRouter);
 app.use(errorHandler);
 
-// const emailTemplate = `<div>
-// <h1>Bienvenido!!</h1>
-// <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/portals_3/2x1_SuperMarioHub.jpg" style="width:250px"/>
-// <p>Ya puedes empezar a usar nuestros servicios</p>
-// <img width="100%" src="cid:data"/>
-// <a href="https://www.google.com/">Explorar</a>
-// </div>`;
 
-// app.post("/registro", async (req,res)=>{
-//     try {
-//         const contenido = await transporter.sendMail({
-//             from:"Ecommerce tienda La Nueva",
-//             to:"joaquincavenaghi@gmail.com",
-//             subject:"Registro exitoso",
-//             html: emailTemplate,
-//             attachments:[
-//                 {
-//                     filename: 'data.jpg',
-//                     path: path.join(__dirname,"/images/data.jpg"),
-//                     cid:"data"
-//                 },
-//                 {
-//                     filename:"factura.pdf",
-//                     path: path.join(__dirname,"images/factura.pdf")
-//                 }
-//             ]
-//         })
-//         console.log("contenido", contenido);
-//         res.json({status:"sucess", message: "Registo y envio de correo."})
-//     } catch (error) {
-//         console.log(error.message);
-//         res.json({status:"error", message: "Hubo un error al registrar al usuario."})
-//     }   
-// })
-
-// app.post("/compra", async (req, res)=>{
-//     try {
-        
-//         const {nombre, producto} = req.query;
-
-//         //creamos el mensaje
-//         const message = await twilioClient.messages.create({
-//             body: `Gracias ${nombre}, su producto ${producto} esta en camino.`,
-//             from: twilioPhone,
-//             to: "+54 2241 470254"
-//         })
-//         console.log("Message:", message);
-//         res.json({status:"success", message:"Compra en camino"})
-
-//     } catch (error) {
-//         console.log(error.message);
-//         res.json({status:"error", message: "Hubo un error al realizar la compra."})
-
-//     }
-// })
+app.get("/loggerTest", (req,res)=>{
+    req.logger.debug("nivel debug");
+    req.logger.http("nivel http");
+    req.logger.info("nivel info");
+    req.logger.warning("nivel warning");
+    req.logger.error("nivel error");
+    req.logger.fatal("nivel fatal");
+    res.send("prueba niveles")
+});

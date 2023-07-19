@@ -5,24 +5,27 @@ class SessionController {
     }
 
     failRegister = async (req,res)=>{
-        console.log('Fallo en el registro');
-        res.send({error: 'Error en el registro'})
+        req.logger.warning("fallo en el registro");
+        res.send({error: 'Error en el registro'});
     }
 
     login = async (req,res)=>{
     
-        if(!req.user) return res.status(400).send({status:"error", error: 'Invalid credentials'});
-    
+        if(!req.user) {
+            req.logger.warning("Credenciales invalidas");
+            return res.status(400).send({status:"error", error: 'Invalid credentials'});
+        }
         req.session.user = {
             name: `${req.user.first_name} ${req.user.last_name}`,
             age: req.user.age,
             email: req.user.email,
             role: req.user.role
         }
+        req.logger.info("Ingreso exitoso");
         res.send({status:"success", payload:req.user, message: "Logueo exitoso"})
     }
     failLogin = async (req,res)=>{
-        console.log('Fallo en el ingreso');
+        req.logger.warning("fallo en el ingreso");
         res.send({error: 'Error en el ingreso'})
     
     }
@@ -47,6 +50,7 @@ class SessionController {
             const user = await userManger.getUserByEmail(email);
             const newHashedPassword = createHash(password);
             await userManger.updateUser(user._id, newHashedPassword);
+            req.logger.info(`Se actualizo la contraseña de ${email}`)
             res.send({status:"success", message:"Contraseña actualizada"})
         } catch (err) {
             return res.status(400).send({status:"error", error:"Datos incorrectos"})

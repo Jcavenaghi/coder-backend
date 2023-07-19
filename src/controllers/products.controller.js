@@ -21,6 +21,7 @@ class ProductsController {
         await managerAccess.crearRegistro('POST');
         const {title, description, code, price, stock, category} = req.body;
         if (!title || !description || !code || !price || !stock | !category ) {
+            req.logger.warning(`error al crear el producto`);
             CustomError.createError({
                 name: "Create Product Error",
                 cause: productCreateErrorInfo(req.body),
@@ -35,8 +36,10 @@ class ProductsController {
         const product = {title, description, code, price, stock, category}
         try {
             const result = await productsService.createProduct(product);
+            req.logger.info(`se creo el producto`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.info(`error creando el producto`)
             CustomError.createError({
                 name: "Create product Error",
                 cause: productCreatDuplicateErrorInfo(code),
@@ -52,6 +55,7 @@ class ProductsController {
           const result = await productsService.getProducts(sort, limit, page, query);
           const products = result.payload;
           const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
+          req.logger.info(`Se obtuvo el listado de productos`)
           res.render('index', {
             products,
             hasPrevPage: result.hasPrevPage,
@@ -64,6 +68,7 @@ class ProductsController {
             role: result.role
           });
         } catch(error) {
+            req.logger.warning(`error al obtener el listado de productos`)
             CustomError.createError({
                 name: "GET product Error",
                 cause: productGetErrorInfo(sort, limit, page, query),
@@ -78,8 +83,10 @@ class ProductsController {
         const id = req.params.pid;
         try {
             const result = await productsService.getProduct(id);
+            req.logger.info(`Se obtuvo el  producto`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.info(`error al obtener el producto`);
             CustomError.createError({
                 name: "GET product Error",
                 cause: productIdErrorInfo(id),
@@ -95,8 +102,10 @@ class ProductsController {
         const data = req.body;
         try {
             const result = productsService.updateProduct(id, data)
+            req.logger.info(`Se actualizo el producto`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.info(`No se actualizo el producto`)
             CustomError.createError({
                 name: "UPDATE product Error",
                 cause: productUpdateErrorInfo(id, data),
@@ -112,8 +121,10 @@ class ProductsController {
         const id = req.params.pid;
         try {
             const result = await productsService.deleteProduct(id);
+            req.logger.info(`Se elimino el producto`)
             res.send({status:"sucess", result});
         } catch (error) {
+            req.logger.info(`No se elimino el producto`)
             CustomError.createError({
                 name: "GET product Error",
                 cause: productIdErrorInfo(id),
@@ -127,7 +138,6 @@ class ProductsController {
         const cant = parseInt(req.query.cant) || 50;
         const prods = []
         for (let i = 0; i < cant; i++) {
-            console.log("toyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy");
             const prod = generateProduct();
             console.log(prod);
             prods.push(prod);
