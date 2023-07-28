@@ -34,6 +34,13 @@ export default class UserManager {
         }
     }
 
+    async updateData(id, user) {
+        try {
+            await userModel.updateOne({_id:id},user )
+        } catch (err) {
+            throw new Error("Error al modificar");
+        }
+    }
     async updateUser(id, newHashedPassword) {
         try {
             await userModel.updateOne({_id:id},{$set:{password:newHashedPassword}});

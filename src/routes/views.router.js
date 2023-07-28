@@ -104,7 +104,8 @@ router.get('/profile', checkRole(["USER", "ADMIN"]) ,(req,res)=>{
 })
 
 router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
-  res.render('session/resetPassword');
+  const token = req.user._id;
+  res.render('session/resetPassword', {token});
 })
 
 //  router.get("/realtimeproducts",  async (req, res) => {

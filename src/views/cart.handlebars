@@ -1,4 +1,3 @@
-
 <div class="container-fluid">
     <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
     <div class="row mt-4">
@@ -9,25 +8,26 @@
                     <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
                     <p class="card-text">{{product.description}}</p>
                     <p class="card-text">Price: ${{product.price}}</p>
-                    <p class="card-text">cantidad: {{this.quantity}}</p>
+                    <p class="card-text">Cantidad: {{this.quantity}}</p>
+                    <button class="btn btn-danger" onclick="eliminarProducto('{{product._id}}')">Eliminar producto</button>
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
-    <div class="row mt-5"aria-label="Page navigation example">
+    <div class="row mt-5" aria-label="Page navigation example">
         <ul class="col-md-12 justify-content-center pagination">
-        {{#if this.hasPrevPage}}
+            {{#if this.hasPrevPage}}
             <li class="page-item">
-                <a class="page-link bg" href="/products/?page={{this.prevPage}}&{{this.query}}">Atras</a>
+                <a class="page-link bg" href="/products/?page={{this.prevPage}}&{{this.query}}">Atrás</a>
             </li>
-        {{/if}}
-        <h3 class="mx-3">{{page}}</h3>
-        {{#if this.hasNextPage}}
+            {{/if}}
+            <h3 class="mx-3">{{page}}</h3>
+            {{#if this.hasNextPage}}
             <li class="page-item">
-                <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Sigueinte</a>
+                <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Siguiente</a>
             </li>
-        {{/if}}
+            {{/if}}
         </ul>
     </div>
 </div>

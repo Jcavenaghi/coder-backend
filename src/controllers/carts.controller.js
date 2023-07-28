@@ -15,6 +15,18 @@ const managerAccess = new ManagerAccess();
 const productManager = new ProductManager();
 
 class CartsController {
+
+    /**
+
+    Recupera un carrito por su ID desde la base de datos.
+    @param {Object} req - El objeto de solicitud que contiene los parámetros.
+    @param {Object} res - El objeto de respuesta para enviar el resultado.
+    @returns {Object} - Devuelve un objeto JSON con los datos del carrito o un mensaje de error.
+    Este método obtiene el carrito con el ID especificado desde la base de datos.
+    Registra la solicitud en managerAccess y luego intenta recuperar el carrito usando cartService.
+    Si tiene éxito, envía una respuesta JSON con un estado de "éxito" y los datos del carrito.
+    Si ocurre un error, envía una respuesta JSON con un estado de "error" y el mensaje de error.
+    */
     getCartById = async (req, res) => {
         const id = req.params.cid;
         await managerAccess.crearRegistro(`Consulta carrito ${id}`);
