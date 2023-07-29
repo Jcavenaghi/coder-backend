@@ -1,14 +1,35 @@
-<div>
-    <h1>Login</h1>
-    <form id="loginForm">
-        <label>Email</label>
-        <input name="email">
-        <br>
-        <label>Contraseña</label>
-        <input name="password" type="password">
-        <input type="submit">
-    </form>
-    <p>No estás registrado? <a href="/register">Regístrate aquí</a></p>
-    <a href="/api/session/github">Ingresar con github</a>
+<div class="container mt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="modal mt-5 fade show" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+                        
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">Ingresar</button>
+                                <a href="/api/session/github" class="btn btn-secondary">Ingresar con GitHub</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center">¿No estás registrado? <a href="/register">Regístrate aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="/js/login.js"></script>

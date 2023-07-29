@@ -1,9 +1,16 @@
-<div>
-    <h1>Tu perfil (sin datos sensibles)</h1>
-    <p>{{user.first_name}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.age}}</p>
-    <p>{{role}}</p>
-
-    <a href="/api/session/logout"><button>Salir</button></a>
+<div class="container mt-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center">Mi Perfil</h1>
+                {{#if user.fist_name}}
+                    <p class="card-text"><strong>Nombre:</strong> {{user.first_name}}</p>
+                {{/if}}
+                <p class="card-text"><strong>Email:</strong> {{user.email}}</p>
+                <p class="card-text"><strong>Edad:</strong> {{user.age}}</p>
+                <p class="card-text"><strong>Rol:</strong> {{user.role}}</p>
+                <a href="/api/session/logout" class="btn btn-danger btn-block">Salir</a>
+            </div>
+        </div>
+    </div>
 </div>

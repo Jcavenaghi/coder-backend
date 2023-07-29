@@ -121,7 +121,7 @@ export default class CartManager {
             });
             return result
         } catch(error) {
-          throw new Error("error"); 
+          throw new Error("Error: No pudo añadirse el producto al carrito" +  error.message); 
         };
     }
     addProducts = async(cid, products) => {
@@ -138,7 +138,7 @@ export default class CartManager {
         await cart.save(); // Guardar los cambios en el carrito actualizado
         return cart; // Opcional: devolver el carrito actualizado
       } catch(err) {
-
+        throw new Error("error al cbuscar el carrito" + error.message); 
       }
     }
 }

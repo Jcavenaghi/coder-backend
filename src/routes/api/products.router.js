@@ -1,13 +1,8 @@
 import { Router } from "express";
-import productModel from "../../dao/models/products.js";
-
-import ManagerAccess from "../../services/managers/ManagerAccess.js";
-import ProductManager from "../../services/managers/ProductManager.js";
 import ProductsController from "../../controllers/products.controller.js";
 
+import { checkRole } from "../../middlewares/auth.js";
 const productsController = new ProductsController();
-const managerAccess = new ManagerAccess();
-const productManager = new ProductManager();
 
 const router = Router();
 
@@ -16,10 +11,12 @@ router.get("/products", productsController.getProducts);
 
 router.get("/:pid", productsController.getProduct);
 
-router.post('/', productsController.createProduct);
+router.post('/', checkRole(["ADMIN"]), productsController.createProduct);
 
-router.put("/:pid", productsController.updateProduct);
+router.put("/:pid", checkRole(["ADMIN"]), productsController.updateProduct);
 
-router.delete("/:pid", productsController.deleteProduct);
+router.delete("/:pid", checkRole(["ADMIN"]), productsController.deleteProduct);
+
+router.post("/mockingproducts", checkRole(["ADMIN"]), productsController.createProductsWithMocking);
 
 export default router;
