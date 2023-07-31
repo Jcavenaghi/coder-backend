@@ -102,9 +102,12 @@ router.get('/profile', checkRole(["USER", "ADMIN"]) ,(req,res)=>{
       role: req.session.user.role
   })
 })
+router.get("/forgotPassword",(req,res)=>{
+  res.render("session/forgotPassword");
+});
 
 router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
-  const token = req.user._id;
+  const token = req.query.token;
   res.render('session/resetPassword', {token});
 })
 

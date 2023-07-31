@@ -1,7 +1,7 @@
 import { GetUserDto } from "../dao/dto/user.dto.js";
 import UserManager from "../services/managers/UserManager.js";
 import { sendRecoveryPass } from "../config/gmail_config.js";
-import { validatePassword, generateEmailToken, verifyEmailToken } from "../utils.js";
+import { validatePassword, generateEmailToken, verifyEmailToken, createHash } from "../utils.js";
 const userManager = new UserManager();
 class SessionController {
     register = async(req,res) =>{
@@ -58,10 +58,10 @@ class SessionController {
             }
             const token = generateEmailToken(email,3*60);
             await sendRecoveryPass(email,token);
+            res.cookie('CoderCookie',token)
             res.send("Se envio un correo a su cuenta para restablecer la contraseña, volver  <a href='/login'>al login</a>")
         } catch (error) {
             return res.send(`<div>Error, <a href="/forgotPassword">Intente de nuevo</a></div>`)
-    
         }
     }
     restartPassword = async (req, res)=>{
@@ -69,6 +69,8 @@ class SessionController {
             const token = req.query.token;
             const {email, password } = req.body;
             const validToken = verifyEmailToken(token);
+            console.log(email)
+            console.log(password);
             if(!email || !password ) return res.status(400).send({status:"error", error:"Datos incorrectos"})
             if (!validToken) {
                 return res.send(`El enlace ya no es valido, genere uno nuevo: <a href="/forgotPassword">Nuevo enlace</a>.`)
@@ -83,7 +85,7 @@ class SessionController {
                 const newHashedPassword = createHash(password);
                 await userManager.updateUser(user._id, newHashedPassword);
                 req.logger.info(`Se actualizo la contraseña de ${email}`)
-                res.render("login", {message:"Contraseña actualizada"})
+                res.redirect('/login');
         } catch (err) {
             return res.status(400).send({status:"error", message: err.message})
         }   

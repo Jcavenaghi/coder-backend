@@ -17,7 +17,7 @@ router.post('/login', passport.authenticate('login',{failureRedirect:'/faillogin
 router.get('/current', sessionController.current)
 router.get('/faillogin', sessionController.failLogin)
 router.get('/logout', sessionController.logout)
-router.post('forgotPassword', sessionController.forgotPassword)
+router.post('/forgotPassword', sessionController.forgotPassword)
 router.post('/restartPassword', sessionController.restartPassword)
 router.get('/github', passport.authenticate('github', {scope:['user:email']}), async (req,res)=>{})
 router.get('/githubcallback', passport.authenticate('github',{failureRedirect:'/login'}), sessionController.githubCallback)
