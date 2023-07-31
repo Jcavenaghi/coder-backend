@@ -6,6 +6,7 @@ export class CreateProductDto{
         this.price = product.price;
         this.stock = product.stock;
         this.category = product.category;
+        this.owner = product.owner;
     }
 };
 
@@ -18,5 +19,6 @@ export class GetProductDto{
         this.stock = productDB.prod.stock;
         this.category = productDB.prod.category;
         this.status = productDB.prod.status;
+        this.owner = productDB.prod.owner;
     }
 };

@@ -36,6 +36,6 @@ export const productUpdateErrorInfo = (pid, data) =>{
 
 export const productIdErrorInfo = (pid) =>{
     return `
-    Id del producto no valido. Debe ser un numero entero, pero se recibio: ${pid}
+    Id del producto no valido. pero se recibio: ${pid}
     `
 }

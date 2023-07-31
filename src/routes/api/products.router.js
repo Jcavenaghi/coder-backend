@@ -11,11 +11,11 @@ router.get("/products", productsController.getProducts);
 
 router.get("/:pid", productsController.getProduct);
 
-router.post('/', checkRole(["ADMIN"]), productsController.createProduct);
+router.post('/', checkRole(["ADMIN", "PREMIUM"]), productsController.createProduct);
 
 router.put("/:pid", checkRole(["ADMIN"]), productsController.updateProduct);
 
-router.delete("/:pid", checkRole(["ADMIN"]), productsController.deleteProduct);
+router.delete("/:pid", checkRole(["ADMIN", "PREMIUM"]), productsController.deleteProduct);
 
 router.post("/mockingproducts", checkRole(["ADMIN"]), productsController.createProductsWithMocking);
 

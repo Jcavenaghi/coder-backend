@@ -33,11 +33,13 @@ class ProductsController {
                 error: 'Datos incompletos'
             })
         }
-        const product = {title, description, code, price, stock, category}
+
+        console.log(req.user.role);
+        const product = {title, description, code, price, stock, category, owner: req.user._id}
         try {
             const result = await productsService.createProduct(product);
             req.logger.info(`se creo el producto`)
-            res.send({status:"sucess", result});
+            res.send({status:"success", result});
         } catch (error) {
             req.logger.info(`error creando el producto`)
             CustomError.createError({
@@ -120,13 +122,31 @@ class ProductsController {
         await managerAccess.crearRegistro('Elimina un producto');
         const id = req.params.pid;
         try {
-            const result = await productsService.deleteProduct(id);
-            req.logger.info(`Se elimino el producto`)
-            res.send({status:"sucess", result});
+            const prod = await productsService.getProduct(id)
+            if (req.user.role === "PREMIUM" ) {
+                if (req.user._id.toString() != prod.owner ) {
+                    console.log("estyoy?")
+                    req.logger.info(`No se elimino el producto`)
+                    CustomError.createError({
+                        name: "DELETE product Error",
+                        cause: productIdErrorInfo(id),
+                        message: "Debe ser el owner para borrar este producto.",
+                        errorCode: EError.AUTH_ERROR
+                    })
+                }
+                const result = await productsService.deleteProduct(id);
+                req.logger.info(`Se elimino el producto`)
+                res.send({status:"success", result});
+
+            } else if (req.user.role === "ADMIN") {
+                const result = await productsService.deleteProduct(id);
+                req.logger.info(`Se elimino el producto`)
+                res.send({status:"success", result});
+            }
         } catch (error) {
             req.logger.info(`No se elimino el producto`)
             CustomError.createError({
-                name: "GET product Error",
+                name: "DELETE product Error",
                 cause: productIdErrorInfo(id),
                 message: "Error obteniendo el producto",
                 errorCode: EError.DATABASE_ERROR
@@ -139,7 +159,6 @@ class ProductsController {
         const prods = []
         for (let i = 0; i < cant; i++) {
             const prod = generateProduct();
-            console.log(prod);
             prods.push(prod);
             productsService.createProduct(prod);
         }

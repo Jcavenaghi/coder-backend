@@ -22,7 +22,6 @@ export const generateProduct = () => {
         category: commerce.department(),
         status: true,
         stock: parseInt(string.numeric(2)),
-        image: image.url(),
         code: string.alphanumeric(10),
         description: commerce.productDescription()
     }
