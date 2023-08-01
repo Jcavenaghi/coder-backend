@@ -29,7 +29,6 @@ router.get("/products", async (req, res) => {
   try {
     const result = await manager.getProducts(sort, limit, page, query);
     const products = result.payload;
-    console.log(req.user.cart);
     const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
     res.render('index', {
       products,
@@ -62,7 +61,7 @@ router.get("/products", async (req, res) => {
 
 
  /* vistas del carrito */
-router.get("/carts/:cid", checkRole(["USER"]), async (req, res) => {
+router.get("/carts/:cid", checkRole(["USER", "PREMIUM"]), async (req, res) => {
   const cid = req.params.cid;
   try {
     const result = await managerCart.getCart(cid);
@@ -96,7 +95,7 @@ router.get('/faillogin', (req,res) => {
   res.render('session/failLogin')
 })
 
-router.get('/profile', checkRole(["USER", "ADMIN"]) ,(req,res)=>{
+router.get('/profile', checkRole(["USER", "ADMIN", "PREMIUM"]) ,(req,res)=>{
   res.render('session/profile',{
       user: req.session.user,
       role: req.session.user.role
@@ -106,7 +105,7 @@ router.get("/forgotPassword",(req,res)=>{
   res.render("session/forgotPassword");
 });
 
-router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
+router.get('/resetPassword', checkRole(["USER", "ADMIN", "PREMIUM"]), (req,res)=>{
   const token = req.query.token;
   res.render('session/resetPassword', {token});
 })
@@ -121,7 +120,7 @@ router.get('/resetPassword', checkRole(["USER", "ADMIN"]), (req,res)=>{
 //  })
 
 
- router.get("/chat", checkRole(["USER"]), async (req, res) => {
+ router.get("/chat", checkRole(["USER", "PREMIUM"]), async (req, res) => {
    const messages = await  messageModel.find().lean();
     let testUser = {
      name: "Alejandra",

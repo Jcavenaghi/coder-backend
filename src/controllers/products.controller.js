@@ -34,7 +34,6 @@ class ProductsController {
             })
         }
 
-        console.log(req.user.role);
         const product = {title, description, code, price, stock, category, owner: req.user._id}
         try {
             const result = await productsService.createProduct(product);
@@ -125,7 +124,6 @@ class ProductsController {
             const prod = await productsService.getProduct(id)
             if (req.user.role === "PREMIUM" ) {
                 if (req.user._id.toString() != prod.owner ) {
-                    console.log("estyoy?")
                     req.logger.info(`No se elimino el producto`)
                     CustomError.createError({
                         name: "DELETE product Error",

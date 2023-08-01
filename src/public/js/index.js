@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const button = addToCartButtons[i];
         button.addEventListener('click', () => {
           const productId = button.dataset.productId;
-          console.log(cartId);
     
           // Realiza una solicitud POST al servidor para agregar el producto al carrito
           addToCart(cartId, productId);
