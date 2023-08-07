@@ -22,6 +22,8 @@ import { addLogger } from "./utils/logger.js"
 import ProductManager from './services/managers/ProductManager.js';
 import MessageManager from './services/managers/MessageManager.js';
 import { errorHandler } from "./middlewares/errorHandler.js"
+import { swaggerSpecs } from './config/docConfig.js';
+import swaggerUi from 'swagger-ui-express';
 
 const manager = new ProductManager();
 const messageManager = new MessageManager();
@@ -93,4 +95,5 @@ app.use('/api/carts/', cartsRouter);
 app.use('/api/users/', userRouter);
 app.use('/', viewRouter);
 app.use('/api/session', sessionRouter);
+app.use('/api/docs', swaggerUi.serve,swaggerUi.setup(swaggerSpecs));
 app.use(errorHandler);

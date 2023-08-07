@@ -102,7 +102,7 @@ class ProductsController {
         const id = req.params.pid;
         const data = req.body;
         try {
-            const result = productsService.updateProduct(id, data)
+            const result = await productsService.updateProduct(id, data)
             req.logger.info(`Se actualizo el producto`)
             res.send({status:"sucess", result});
         } catch (error) {

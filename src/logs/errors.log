@@ -2,3 +2,31 @@
 {"level":"info","message":"Ingreso exitoso"}
 {"level":"info","message":"Ingreso exitoso"}
 {"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"Se obtuvo el listado de productos"}
+{"level":"info","message":"error al obtener el producto"}
+{"level":"info","message":"Se obtuvo el  producto"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"Se actualizo el producto"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"warning","message":"error al crear el producto"}
+{"level":"info","message":"se creo el producto"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519e"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"warning","message":"error al añadir al carrito"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"Ingreso exitoso"}
+{"level":"info","message":"se elimino el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"warning","message":"error al añadir al carrito"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"warning","message":"error al añadir al carrito"}
+{"level":"info","message":"se obtuvo el carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"se añadieron correctamente los productos al carrito 64a5a710e45a4c4ada0a519c"}
+{"level":"info","message":"se agrego el carrito"}

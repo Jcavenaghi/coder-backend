@@ -22,7 +22,7 @@ router.delete("/:cid", checkRole(["ADMIN"]), cartsController.deleteCart)
 /* PUT api/carts/:cid deberá actualizar el carrito con un
  arreglo de productos con el formato especificado arriba.*/
 
- router.put("/:cid", checkRole(["USER"]), cartsController.addProductsToCart);
+ router.put("/:cid", checkRole(["USER", "PREMIUM"]), cartsController.addProductsToCart);
 
 
 
