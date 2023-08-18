@@ -33,5 +33,5 @@ const schema = new mongoose.Schema({
       cart: { type: mongoose.Schema.Types.ObjectId, ref: 'Carts' },
       
 });
-const cartModel = mongoose.model(collection,schema);
-export default cartModel;
+const userModel = mongoose.model(collection,schema);
+export default userModel;

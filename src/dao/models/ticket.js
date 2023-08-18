@@ -24,5 +24,5 @@ const schema = new mongoose.Schema({
   schema.pre('find', function(){
     this.populate('items.product');
   })
-  const ticketModel = mongoose.model(collection, schema);
+const ticketModel = mongoose.model(collection, schema);
 export default ticketModel;
