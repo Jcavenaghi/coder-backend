@@ -21,3 +21,8 @@ form.addEventListener('submit', e =>{
         }
     })
 })
+
+window.addEventListener('load', function () {
+    var myModal = new bootstrap.Modal(document.getElementById('loginModal'));
+    myModal.show();
+});

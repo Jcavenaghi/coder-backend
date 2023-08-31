@@ -1,40 +1,32 @@
 import { Router } from "express";
 
-import cartModel from "../../dao/models/carts.js";
-import ManagerAccess from "../../services/managers/ManagerAccess.js";
-import CartManager from "../../services/managers/CartManager.js";
 import CartsController from "../../controllers/carts.controller.js";
 
+import { checkRole } from "../../middlewares/auth.js";
 
 const router = Router();
 
 const cartsController = new CartsController();
-const cartManager = new CartManager();
-const managerAccess = new ManagerAccess();
 
-/* Hecho */
+
+
 router.get("/:cid", cartsController.getCartById)
 
-/* Hecho */
 router.post("/", cartsController.addCart);
 
+router.delete("/:cid/products/:pid", checkRole(["USER"]), cartsController.deleteProductFromCart);
 
-/* Hecho */
-router.delete("/:cid/products/:pid", cartsController.deleteProductFromCart);
-
-
-/* Hecho */
-router.delete("/:cid", cartsController.deleteCart)
+router.delete("/:cid", checkRole(["ADMIN"]), cartsController.deleteCart)
 
 
 /* PUT api/carts/:cid deberá actualizar el carrito con un
  arreglo de productos con el formato especificado arriba.*/
 
- router.put("/:cid", cartsController.addProductsToCart);
+ router.put("/:cid", checkRole(["USER", "PREMIUM"]), cartsController.addProductsToCart);
 
 
 
-router.post("/:cid/products/:pid", cartsController.addOneProductToCart);
+router.post("/:cid/products/:pid", checkRole(["USER"]), cartsController.addOneProductToCart);
 
 
 
@@ -42,7 +34,9 @@ router.post("/:cid/products/:pid", cartsController.addOneProductToCart);
 actualizar SÓLO la cantidad de ejemplares del producto
  por cualquier cantidad pasada desde req.body */
 
- router.put("/:cid/products/:pid", cartsController.addAnyQuantityProductToCart)
+ router.put("/:cid/products/:pid", checkRole(["USER"]), cartsController.addAnyQuantityProductToCart)
 
+
+ router.post("/:cid/purchase", checkRole(["USER"]), cartsController.endBoughtAndGenerateTicket);
 
 export default router;

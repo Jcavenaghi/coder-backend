@@ -1,21 +1,35 @@
 
-<div>
-    <h1>Registro</h1>
-    <form id="registerForm">
-        <label>Nombre</label>
-        <input name="first_name">
-        <label>Apellido</label>
-        <input name="last_name">
-        <label>Email</label>
-        <input name="email" type="email">
-        <label>Edad</label>
-        <input name="age">
-        <label>Contraseña</label>
-        <input type="password" name="password">
-
-        <input type="submit">
-
-    </form>
-    <p>¿Ya tienes una cuenta? <a href="/login">Ingrese aquí</a></p>
-</div>
+    <div class="container mt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Registro</h1>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Edad</label>
+                            <input type="number" class="form-control" id="age" name="age" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                    </form>
+                    <p class="text-center mt-3">¿Ya tienes una cuenta? <a href="/login">Ingrese aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 <script src="/js/register.js"></script>

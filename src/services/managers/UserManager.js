@@ -6,12 +6,21 @@ import userModel from '../../dao/models/users.js'
 
 export default class UserManager {
 
+
+    async getUsers() {
+        try {
+            const users = await userModel.find();
+            return users
+        } catch(err) {
+            throw new Error(`error al obtener los usuarios ` + err.message);
+        }
+    }
     async getUserById(id) {
         try {
-           const user = await userService.findById(id);
+           const user = await userModel.findById(id);
            return user
         } catch (err) {
-            throw new Error("error");
+            throw new Error(`error al obtener un usuario mediante el id ${id}: ` + err.message);
         }
     }
     async getUserByEmail(email) {
@@ -20,7 +29,7 @@ export default class UserManager {
             const user = await userModel.findOne({email});
             return user 
         } catch (err) {
-            throw new Error("error");
+            throw new Error(`error al obtener un usuario mediante el mail ${email}: ` + err.message);
         }
 
     };
@@ -28,19 +37,24 @@ export default class UserManager {
     async createUser(user) {
         try {
             const result = await userModel.create(user);
-            console.log(result);
             return result
         } catch (err) {
-            throw new Error("error");
+            throw new Error("error al crear usuario: " + err.message);
         }
     }
 
+    async updateData(id, user) {
+        try {
+            await userModel.updateOne({_id:id},user )
+        } catch (err) {
+            throw new Error("Error al modificar");
+        }
+    }
     async updateUser(id, newHashedPassword) {
         try {
-            console.log("in manager");
             await userModel.updateOne({_id:id},{$set:{password:newHashedPassword}});
         } catch (err) {
-            throw new Error("Error al modificar")
+            throw new Error("Error al modificar: " + err.message);
         }
         
     }

@@ -1,34 +1,42 @@
 <div class="container-fluid">
-    <h1>Bienvenido {{user.first_name}}, rol: "{{role}}" </h1>
-    <div class="row mt-4">
+    <h1>Bienvenido {{user.first_name}}, rol: "{{cartId}}" </h1>
+    <div class="row mt-4 container2" data-cartId="{{cartId}}">
         {{#each products}}
         <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+            <div class="card mb-4 shadow-sm" style="border: 2px solid #b8860b;">
                 <div class="card-body text-center">
-                    <h5 class="card-title text-primary"><a href="/products/{{this._id}}">{{this.title}}</a></h5>
+                    <h5 class="card-title text-primary"><a href="/products/{{this._id}}" style="text-decoration: none;">{{this.title}}</a></h5>
                     <p class="card-text">{{this.description}}</p>
                     <p class="card-text">Price: ${{this.price}}</p>
                     <p class="card-text">Stock: {{this.stock}}</p>
                 </div>
-                <button class="btn btn-info add-to-cart-btn mb-2 mx-5 text-uppercase" data-product-id="{{this._id}}">Añadir al carrito</button>
+                <button class="btn btn-info add-to-cart-btn mb-2 mx-5 text-uppercase" style="background-color: #b8860b; border: 2px solid #b8860b;" data-product-id="{{this._id}}">Añadir al carrito</button>
             </div>
         </div>
         {{/each}}
     </div>
-    <div class="row mt-5"aria-label="Page navigation example">
-        <ul class="col-md-12 justify-content-center pagination">
-        {{#if this.hasPrevPage}}
-            <li class="page-item">
-                <a class="page-link bg" href="/products/?page={{this.prevPage}}&{{this.query}}">Atras</a>
-            </li>
-        {{/if}}
-        <h3 class="mx-3">{{page}}</h3>
-        {{#if this.hasNextPage}}
-            <li class="page-item">
-                <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Sigueinte</a>
-            </li>
-        {{/if}}
-        </ul>
+   <div class="row mt-5">
+        <nav aria-label="Page navigation" class="col-md-12">
+            <ul class="pagination justify-content-center">
+
+                {{#if this.hasPrevPage}}
+                    <li class="page-item">
+                        <a class="page-link" href="/products/?page={{this.prevPage}}&{{this.query}}">Anterior</a>
+                    </li>
+                {{/if}}
+
+                <li class="page-item disabled">
+                    <span class="page-link mx-3">Página {{page}}</span>
+                </li>
+
+                {{#if this.hasNextPage}}
+                    <li class="page-item">
+                        <a class="page-link" href="/products/?page={{this.nextPage}}&{{this.query}}">Siguiente</a>
+                    </li>
+                {{/if}}
+
+            </ul>
+        </nav>
     </div>
 </div>
 <script src="socket.io/socket.io.js"></script>

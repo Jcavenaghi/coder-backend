@@ -6,23 +6,13 @@ import productModel from '../../dao/models/products.js';
 
 export default class ProductManager {
 
-    async addProduct(product) {
-        try {
-            const prod = await productModel.create(product)
-            return { prod }
-        } catch (err) {
-            throw new Error("error");
-        }
-    }
-
     async getProductById(pid) {
         // Buscar un producto por su id
         try {
             const prod = await productModel.findById(pid).lean();
-            console.log(prod)
             return { prod }
-        } catch (err) {
-            throw new Error("error");
+        } catch (error) {
+            throw new Error(`error al obtener producto con id: ${pid}. ` + error.message);
         }
 
     };
@@ -56,21 +46,18 @@ export default class ProductManager {
                 hasNextPage: result.hasNextPage,
             };
         } else {
-            throw new Error('Pruebe con otros parametros.'); 
+            throw new Error('Error al obtener el producto. Pruebe con otros parametros.'); 
         }
 
 
     }
-    async addProduct(data) {
-        const {title, description, code, price, stock, category} = data;
-        if (!title || !description || !code || !price || !stock | !category ) {
-            return res.status(400).send ({
-                msg: 'No se registro el usuario',
-                error: 'Datos incompletos'
-            })
+    async addProduct(product) {
+        try {
+            const prod = await productModel.create(product)
+            return { prod }
+        } catch (err) {
+            throw new Error("error");
         }
-        const result = await productModel.create(data)
-        return result;
     }
 
     updateProduct = async (id, data) => {
@@ -78,9 +65,10 @@ export default class ProductManager {
             const products = await productModel.updateOne({_id:id},{$set:data});
             return products
         } catch(err) {
-            throw new Error('Error'); 
+            throw new Error('Error al actualizar: ' + err.message); 
         }
     }
+    
     deleteProduct = async (id) => {
         await productModel.deleteOne({_id:id})
         const result = await productModel.find().lean();
