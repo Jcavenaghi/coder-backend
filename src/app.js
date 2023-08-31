@@ -97,3 +97,5 @@ app.use('/', viewRouter);
 app.use('/api/session', sessionRouter);
 app.use('/api/docs', swaggerUi.serve,swaggerUi.setup(swaggerSpecs));
 app.use(errorHandler);
+
+export {app}

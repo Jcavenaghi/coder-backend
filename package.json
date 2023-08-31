@@ -6,10 +6,7 @@
   "main": "ProductManager.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "test1": "mocha test/users.test.js --timeout 10000",
-    "test2": "mocha test/chaiTest.test.js --timeout 10000",
-    "test3": "mocha test/auth.test.js --timeout 10000"
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +47,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.7",
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }
