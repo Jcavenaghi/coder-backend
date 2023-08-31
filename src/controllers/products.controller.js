@@ -18,7 +18,7 @@ const productManager = new ProductManager();
 class ProductsController {
 
     createProduct = async (req, res) => {
-        await managerAccess.crearRegistro('POST');
+        await managerAccess.crearRegistro(`POST - creando producto ${req.bdy.title}`);
         const {title, description, code, price, stock, category} = req.body;
         if (!title || !description || !code || !price || !stock | !category ) {
             req.logger.warning(`error al crear el producto`);
@@ -55,19 +55,8 @@ class ProductsController {
         try {
           const result = await productsService.getProducts(sort, limit, page, query);
           const products = result.payload;
-          const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
           req.logger.info(`Se obtuvo el listado de productos`)
-          res.render('index', {
-            products,
-            hasPrevPage: result.hasPrevPage,
-            hasNextPage: result.hasNextPage,
-            nextPage: result.nextPage,
-            prevPage: result.prevPage,
-            page: result.page,
-            query: linkQuerys,
-            user: req.session.user,
-            role: result.role
-          });
+          res.send({status:"success", products});
         } catch(error) {
             req.logger.warning(`error al obtener el listado de productos`)
             CustomError.createError({

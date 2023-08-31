@@ -6,6 +6,15 @@ import userModel from '../../dao/models/users.js'
 
 export default class UserManager {
 
+
+    async getUsers() {
+        try {
+            const users = await userModel.find();
+            return users
+        } catch(err) {
+            throw new Error(`error al obtener los usuarios ` + err.message);
+        }
+    }
     async getUserById(id) {
         try {
            const user = await userModel.findById(id);
