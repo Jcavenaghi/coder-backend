@@ -1,20 +1,27 @@
 <div class="container-fluid">
     <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
-    <div class="row mt-4">
-        {{#each this.products}}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body text-center">
-                    <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
-                    <p class="card-text">{{product.description}}</p>
-                    <p class="card-text">Price: ${{product.price}}</p>
-                    <p class="card-text">Cantidad: {{this.quantity}}</p>
-                    <button class="btn btn-danger" onclick="eliminarProducto('{{product._id}}')">Eliminar producto</button>
+    {{#if this.products.length}}
+        <div class="row mt-4">
+            {{#each this.products}}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-primary"><a href="/products/{{product._id}}">{{product.title}}</a></h5>
+                        <p class="card-text">{{product.description}}</p>
+                        <p class="card-text">Price: ${{product.price}}</p>
+                        <p class="card-text">Cantidad: {{this.quantity}}</p>
+                        <button class="btn btn-danger" onclick="eliminarProducto('{{product._id}}')">Eliminar producto</button>
+                    </div>
                 </div>
             </div>
+            {{/each}}
+            <div class="text-center">
+                <button class="btn btn-primary" onclick="finalizarCompra('{{this.id}}')">Comprar</button>
+            </div>
         </div>
-        {{/each}}
-    </div>
+    {{else}}
+        <h2 class="text-center text-uppercase">No hay productos en el carrito</h2>
+    {{/if}}
     <div class="row mt-5" aria-label="Page navigation example">
         <ul class="col-md-12 justify-content-center pagination">
             {{#if this.hasPrevPage}}
@@ -32,3 +39,4 @@
     </div>
 </div>
 <script src="socket.io/socket.io.js"></script>
+<script src="/js/cart.js"></script>

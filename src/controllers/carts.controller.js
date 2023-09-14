@@ -5,7 +5,6 @@ import { cartService } from "../repository/index.js";
 import { transporter } from "../config/gmail_config.js";
 import __dirname from "../utils.js";
 import path from "path"
-import { twilioPhone, twilioClient } from "../config/twilio_config.js";
 
 
 import {v4 as uuidv4} from "uuid";
@@ -86,6 +85,7 @@ class CartsController {
     addOneProductToCart = async (req, res) => {
         let cid = req.params.cid;
         let pid = req.params.pid;
+        console.log("estoy llegando o klk?")
         await managerAccess.crearRegistro(`agregar producto: ${pid} al carrito: ${cid}`);
         
         try {
@@ -169,15 +169,6 @@ class CartsController {
                         },
                     ]
                 })
-                                //creamos el mensaje
-                await twilioClient.messages.create({
-                    body: `Gracias ${req.user.email}, sus productos esta en camino.`,
-                    from: twilioPhone,
-                    to: "+54 2241 470254" //cambiar por tu num @eduardo para probar.
-                })
-            
-                
-
                 res.send(ticketCreated)
 
             }else{

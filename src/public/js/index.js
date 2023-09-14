@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   async function addToCart(cartId, productId) {
-    const url = `api/carts/${cartId}/products/${productId}`;
+    console.log(cartId)
+    console.log(productId)
+    const url = `/api/carts/${cartId}/products/${productId}`;
     try {
-        const response = await fetch(url, {
+        const response = await fetch(`/api/carts/${cartId}/products/${productId}`, {
             method: 'POST'
           });
           console.log("¡añadido!");
+          console.log(response)
         return response
     } catch(error)  {
       // Maneja cualquier error que ocurra durante la solicitud
