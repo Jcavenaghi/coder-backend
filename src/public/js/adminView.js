@@ -23,7 +23,7 @@ function modificarUsuario(userId) {
 }
 
 function eliminarUsuario(userId) {
-    console.log("HOLA ESTOY!: " + userId)
+
     fetch(`/api/users/${userId}`, {
       method: 'DELETE',
       headers: {

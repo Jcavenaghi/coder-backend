@@ -115,9 +115,6 @@ class ProductsController {
             const prod = await productsService.getProduct(id)
             const user = await userManager.getUserById(prod.owner);
             if (req.user.role === "PREMIUM" ) {
-                console.log(prod.owner)
-                console.log("---")
-                console.log(req.user._id)
                 if (req.user._id.toString() != prod.owner ) {
                     req.logger.info(`No se elimino el producto`)
                     CustomError.createError({

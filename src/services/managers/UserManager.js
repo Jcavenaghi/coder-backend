@@ -62,7 +62,6 @@ export default class UserManager {
     async deleteOfflineUsers(date) {
         try {
             const deletedUsers = await userModel.find({ last_connection: { $lt: date } });
-            console.log(deletedUsers);
             const deletedEmails = deletedUsers.map(user => user.email);
             const users = await userModel.deleteMany({ last_connection: { $lt: date } });
             return deletedEmails

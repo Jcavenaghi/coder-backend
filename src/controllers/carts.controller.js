@@ -85,7 +85,6 @@ class CartsController {
     addOneProductToCart = async (req, res) => {
         let cid = req.params.cid;
         let pid = req.params.pid;
-        console.log("estoy llegando o klk?")
         await managerAccess.crearRegistro(`agregar producto: ${pid} al carrito: ${cid}`);
         
         try {

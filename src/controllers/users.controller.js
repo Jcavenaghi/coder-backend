@@ -50,15 +50,8 @@ class UserController {
 
     deleteUserById = async (req, res) => {
         try {
-            console.log(req.user)
-            
-            console.log(req.user._id)
+
             const userId = req.params.uid
-            console.log(userId)
-            console.log((req.user._id == userId))
-            if (req.user._id == userId) {
-                res.json({status:"success", message: "No puede eliminarse usted mismo"});
-            }
             const result = await userManager.deleteUserById(userId)
             res.json({status:"success", message: "Borrado exitoso."});
         } catch (err) {
