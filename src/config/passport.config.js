@@ -73,6 +73,8 @@ const initializePassport = () => {
                 return done(null, false);
             }
             if(!validatePassword(password,user)) return done (null, false);
+            user.last_connection = Date.now();
+            await userManager.updateData(user._id, user)
             return done(null,user);
         } catch (error) {
             return done("Error al intentar ingresar: " + error);

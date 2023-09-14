@@ -26,7 +26,7 @@ router.delete("/:cid", checkRole(["ADMIN"]), cartsController.deleteCart)
 
 
 
-router.post("/:cid/products/:pid", checkRole(["USER"]), cartsController.addOneProductToCart);
+router.post("/:cid/products/:pid", checkRole(["USER", "PREMIUM"]), cartsController.addOneProductToCart);
 
 
 
@@ -37,6 +37,6 @@ actualizar SÓLO la cantidad de ejemplares del producto
  router.put("/:cid/products/:pid", checkRole(["USER"]), cartsController.addAnyQuantityProductToCart)
 
 
- router.post("/:cid/purchase", checkRole(["USER"]), cartsController.endBoughtAndGenerateTicket);
+ router.post("/:cid/purchase", checkRole(["USER", "PREMIUM"]), cartsController.endBoughtAndGenerateTicket);
 
 export default router;
