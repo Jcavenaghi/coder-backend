@@ -18,3 +18,20 @@ Fecha: 7/8/2023 -  Hora: 16:17:54 - Metodo: Consulta carrito 64a5a710e45a4c4ada0
 Fecha: 7/8/2023 -  Hora: 16:19:04 - Metodo: agregar productos al carrito: 64a5a710e45a4c4ada0a519c
 Fecha: 7/8/2023 -  Hora: 16:21:33 - Metodo: agregar carrito
 Fecha: 18/8/2023 -  Hora: 13:59:48 - Metodo: POST
+Fecha: 14/9/2023 -  Hora: 10:33:36 - Metodo: POST - creando producto Polo Blue
+Fecha: 14/9/2023 -  Hora: 10:34:08 - Metodo: POST - creando producto Acqua di Gio
+Fecha: 14/9/2023 -  Hora: 10:34:23 - Metodo: POST - creando producto Dior Sauvage
+Fecha: 14/9/2023 -  Hora: 10:34:39 - Metodo: POST - creando producto Bleu de Chanel
+Fecha: 14/9/2023 -  Hora: 10:34:59 - Metodo: POST - creando producto Armani Code
+Fecha: 14/9/2023 -  Hora: 10:35:56 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:47:17 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:47:56 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:51:52 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:52:02 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:53:27 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:53:54 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 11:29:38 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 11:29:45 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 11:30:37 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 12:08:57 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 12:08:58 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 650309ad693b38247c7f2f92

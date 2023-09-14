@@ -35,28 +35,6 @@ const httpServer = app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
 })
 
-const socketServer = new Server(httpServer);
-
-socketServer.on('connection', async socket=> {
-    socket.on('add-product', async function(data) {
-      let products = await manager.addProduct(data);
-      socket.emit('product-data', { products });
-    });
-
-        // Escuchar la señal del cliente para eliminar un producto
-    socket.on('delete-product', async function(productId) {
-        let products = await manager.deleteProduct(productId)
-        // Emitir una señal a todos los clientes conectados para actualizar la lista de productos
-        socket.emit('update-products', products);
-    });
-    socket.on('message', function (data) {
-        console.log(data);
-    });
-    socket.on('add-message', async function(data) {
-        let messages = await messageManager.addMessage(data);
-        socket.emit('update-messages',messages);
-    })
-})
 
 /* Configuración de BD mongoose */
 const MONGO = config.mongo.url;

@@ -1,0 +1,27 @@
+
+<div class="container text-center">
+    <h1>Listado de Usuarios</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr>
+                <td>{{email}}</td>
+                <td>{{role}}</td>
+                <td>
+                    <button class="btn btn-danger" onclick="eliminarUsuario('{{_id}}')">Eliminar</button>
+                    <button class="btn btn-primary" onclick="modificarUsuario('{{_id}}')">Modificar</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/js/adminView.js"></script>
+

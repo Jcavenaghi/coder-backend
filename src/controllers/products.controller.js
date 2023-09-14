@@ -9,16 +9,18 @@ import { EError } from "../enums/EError.js";
 import { productCreateErrorInfo, productGetErrorInfo, productUpdateErrorInfo, productIdErrorInfo, productCreatDuplicateErrorInfo } from "../services/productErrors/productErrorInfo.js";
 import { productsService } from "../repository/index.js";
 import { generateProduct } from "../utils.js";
-
+import { sendDeleteUserProduct } from "../config/gmail_config.js";
+import UserManager from "../services/managers/UserManager.js";
 
 
 const managerAccess = new ManagerAccess();
 const productManager = new ProductManager();
+const userManager = new UserManager();
 
 class ProductsController {
 
     createProduct = async (req, res) => {
-        await managerAccess.crearRegistro(`POST - creando producto ${req.bdy.title}`);
+        await managerAccess.crearRegistro(`POST - creando producto ${req.body.title}`);
         const {title, description, code, price, stock, category} = req.body;
         if (!title || !description || !code || !price || !stock | !category ) {
             req.logger.warning(`error al crear el producto`);
@@ -111,6 +113,7 @@ class ProductsController {
         const id = req.params.pid;
         try {
             const prod = await productsService.getProduct(id)
+            const user = await userManager.getUserById(prod.owner);
             if (req.user.role === "PREMIUM" ) {
                 if (req.user._id.toString() != prod.owner ) {
                     req.logger.info(`No se elimino el producto`)
@@ -121,11 +124,13 @@ class ProductsController {
                         errorCode: EError.AUTH_ERROR
                     })
                 }
+                await sendDeleteUserProduct(user.email)
                 const result = await productsService.deleteProduct(id);
                 req.logger.info(`Se elimino el producto`)
                 res.send({status:"success", result});
 
             } else if (req.user.role === "ADMIN") {
+                await sendDeleteUserProduct(user.email)
                 const result = await productsService.deleteProduct(id);
                 req.logger.info(`Se elimino el producto`)
                 res.send({status:"success", result});

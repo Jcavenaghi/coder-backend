@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
   async function addToCart(cartId, productId) {
-    const url = `api/carts/${cartId}/products/${productId}`;
+    const url = `/api/carts/${cartId}/products/${productId}`;
     try {
-        const response = await fetch(url, {
+        const response = await fetch(`/api/carts/${cartId}/products/${productId}`, {
             method: 'POST'
           });
           console.log("¡añadido!");
