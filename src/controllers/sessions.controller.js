@@ -23,7 +23,8 @@ class SessionController {
             name: `${req.user.first_name} ${req.user.last_name}`,
             age: req.user.age,
             email: req.user.email,
-            role: req.user.role
+            role: req.user.role,
+            cartId: req.user.cart
         }
         req.logger.info("Ingreso exitoso");
         res.send({status:"success", payload:req.user, message: "Logueo exitoso"})

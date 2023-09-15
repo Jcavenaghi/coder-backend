@@ -34,7 +34,10 @@ class viewsController {
         const pid = req.params.pid;
         try {
           const result = await manager.getProductById(pid);
-          res.render('product', result);
+          console.log(req.session.user)
+          res.render('product', {
+            result,
+            user: req.session.user});
         } catch(error) {
           res.status(400).send({status:"error", error: `error al consultar`})
         }
@@ -45,7 +48,8 @@ class viewsController {
           const result = await managerCart.getCart(cid);
           res.render('cart', {
             products: result.items,
-            id: cid
+            id: cid,
+            user: req.session.user,
           });
         } catch(error) {
           res.status(400).send({status:"error", error: `error al consultar`})
