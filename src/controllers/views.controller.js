@@ -12,6 +12,7 @@ class viewsController {
         try {
             const result = await manager.getProducts(sort, limit, page, query);
             const products = result.payload;
+            console.log(products)
             const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
             res.render('index', {
                 products,
@@ -34,7 +35,11 @@ class viewsController {
         const pid = req.params.pid;
         try {
           const result = await manager.getProductById(pid);
-          res.render('product', result);
+          console.log(result)
+          res.render('product', {
+            prod: result.prod,
+            cartId: req.user.cart
+          });
         } catch(error) {
           res.status(400).send({status:"error", error: `error al consultar`})
         }
@@ -45,7 +50,8 @@ class viewsController {
           const result = await managerCart.getCart(cid);
           res.render('cart', {
             products: result.items,
-            id: cid
+            id: cid,
+            cartId: req.user.cart
           });
         } catch(error) {
           res.status(400).send({status:"error", error: `error al consultar`})

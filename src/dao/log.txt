@@ -35,3 +35,4 @@ Fecha: 14/9/2023 -  Hora: 11:29:45 - Metodo: agregar producto: 65030bb0c2e156dce
 Fecha: 14/9/2023 -  Hora: 11:30:37 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
 Fecha: 14/9/2023 -  Hora: 12:08:57 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
 Fecha: 14/9/2023 -  Hora: 12:08:58 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 650309ad693b38247c7f2f92
+Fecha: 31/10/2023 -  Hora: 11:47:14 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 65411315959957a2a8eb46bf

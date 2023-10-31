@@ -14,7 +14,7 @@ class SessionController {
     }
 
     login = async (req,res)=>{
-    
+        console.log(req.user)
         if(!req.user) {
             req.logger.warning("Credenciales invalidas");
             return res.status(400).send({status:"error", error: 'Invalid credentials'});
@@ -23,7 +23,6 @@ class SessionController {
             name: `${req.user.first_name} ${req.user.last_name}`,
             age: req.user.age,
             email: req.user.email,
-            role: req.user.role
         }
         req.logger.info("Ingreso exitoso");
         res.send({status:"success", payload:req.user, message: "Logueo exitoso"})
@@ -87,12 +86,6 @@ class SessionController {
             return res.status(400).send({status:"error", message: err.message})
         }   
     }
-
-    githubCallback = async (req,res)=>{
-        req.session.user = req.user;
-        res.redirect('/')
-    }
-
 }
 
 export default SessionController

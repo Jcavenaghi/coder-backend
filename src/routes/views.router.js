@@ -39,11 +39,11 @@ router.get('/failregister', (req,res) => {
 })
 
 
-router.get('/', publicAccess, (req,res)=>{
+router.get('/', (req,res)=>{
   res.render('session/login')
 })
 
-router.get('/login', publicAccess, (req,res)=>{
+router.get('/login', (req,res)=>{
   res.render('session/login')
 })
 
@@ -52,9 +52,14 @@ router.get('/faillogin', (req,res) => {
 })
 
 router.get('/profile', checkRole(["USER", "ADMIN", "PREMIUM"]) ,(req,res)=>{
+  console.log(req.user)
   res.render('session/profile',{
-      user: req.session.user,
-      role: req.session.user.role
+      email: req.user.email,
+      first_name: req.user.first_name,
+      last_name: req.user.last_name,
+      role: req.user.role,
+      edad: req.user.edad,
+      cartId: req.user.cart
   })
 })
 router.get("/forgotPassword",(req,res)=>{

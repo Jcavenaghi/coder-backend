@@ -3,12 +3,12 @@
         <div class="card" id="card-container">
             <div class="card-body">
                 <h1 class="card-title text-center">Mi Perfil</h1>
-                {{#if user.fist_name}}
-                    <p class="card-text"><strong>Nombre:</strong> {{user.first_name}}</p>
+                {{#if fist_name}}
+                    <p class="card-text"><strong>Nombre:</strong> {{first_name}}</p>
                 {{/if}}
-                <p class="card-text"><strong>Email:</strong> {{user.email}}</p>
-                <p class="card-text"><strong>Edad:</strong> {{user.age}}</p>
-                <p class="card-text"><strong>Rol:</strong> {{user.role}}</p>
+                <p class="card-text"><strong>Email:</strong> {{email}}</p>
+                <p class="card-text"><strong>Edad:</strong> {{age}}</p>
+                <p class="card-text"><strong>Rol:</strong> {{role}}</p>
                 <a href="/api/session/logout" class="btn btn-danger btn-block">Salir</a>
             </div>
         </div>
