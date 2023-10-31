@@ -22,11 +22,11 @@ router.delete("/:cid", checkRole(["ADMIN"]), cartsController.deleteCart)
 /* PUT api/carts/:cid deberá actualizar el carrito con un
  arreglo de productos con el formato especificado arriba.*/
 
- router.put("/:cid", checkRole(["USER"]), cartsController.addProductsToCart);
+ router.put("/:cid", checkRole(["USER", "PREMIUM"]), cartsController.addProductsToCart);
 
 
 
-router.post("/:cid/products/:pid", checkRole(["USER"]), cartsController.addOneProductToCart);
+router.post("/:cid/products/:pid", checkRole(["USER", "PREMIUM"]), cartsController.addOneProductToCart);
 
 
 
@@ -37,6 +37,6 @@ actualizar SÓLO la cantidad de ejemplares del producto
  router.put("/:cid/products/:pid", checkRole(["USER"]), cartsController.addAnyQuantityProductToCart)
 
 
- router.post("/:cid/purchase", checkRole(["USER"]), cartsController.endBoughtAndGenerateTicket);
+ router.post("/:cid/purchase", checkRole(["USER", "PREMIUM"]), cartsController.endBoughtAndGenerateTicket);
 
 export default router;

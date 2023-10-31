@@ -30,8 +30,12 @@ const schema = new mongoose.Schema({
         enum: ["USER","ADMIN"],
         default: 'USER'
       },
+      last_connection: {
+        type: Date,
+        default: Date.now()
+      },
       cart: { type: mongoose.Schema.Types.ObjectId, ref: 'Carts' },
       
 });
-const cartModel = mongoose.model(collection,schema);
-export default cartModel;
+const userModel = mongoose.model(collection,schema);
+export default userModel;

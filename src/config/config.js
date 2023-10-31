@@ -28,9 +28,4 @@ export const config = {
         adminAccount: process.env.ADMIN_EMAIL,
         adminPassword: process.env.ADMIN_PASS
     },
-    twilio: {
-        twilioId: process.env.TWILIO_ID,
-        twilioToken: process.env.TWILIO_TOKEN,
-        twilioPhone: process.env.TWILIO_PHONE
-    }
 }

@@ -1,173 +1,37 @@
 
-
-Fecha: 20/6/2023 -  Hora: 14:27:07 - Metodo: agregar producto: 645d8b1283bf26aa33a03b76 al carrito: 645d6da64cf9da512c34ecbc
-Fecha: 20/6/2023 -  Hora: 14:27:14 - Metodo: agregar carrito
-Fecha: 20/6/2023 -  Hora: 14:27:19 - Metodo: agregar cantidad: 6 al producto: 645d8b1283bf26aa33a03b76 del carrito: 645d6da64cf9da512c34ecbc
-Fecha: 20/6/2023 -  Hora: 14:27:22 - Metodo: Consulta carrito 646241956ee9abd17719e473
-Fecha: 20/6/2023 -  Hora: 14:27:26 - Metodo: agregar productos al carrito: 646241956ee9abd17719e473
-Fecha: 20/6/2023 -  Hora: 14:27:30 - Metodo: Consulta carrito 646241956ee9abd17719e473
-Fecha: 20/6/2023 -  Hora: 14:27:38 - Metodo: borrar productos del carrito: 645d6da64cf9da512c34ecbc
-Fecha: 20/6/2023 -  Hora: 14:44:16 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:44:24 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:44:29 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:44:54 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:45:15 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:45:44 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:46:14 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:46:28 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:47:01 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:47:26 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:48:30 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:48:42 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:48:49 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:50:15 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:51:00 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:51:06 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:52:07 - Metodo: GET
-Fecha: 20/6/2023 -  Hora: 14:54:09 - Metodo: Consulta un solo producto
-Fecha: 20/6/2023 -  Hora: 14:54:14 - Metodo: Consulta un solo producto
-Fecha: 20/6/2023 -  Hora: 15:04:11 - Metodo: POST
-Fecha: 20/6/2023 -  Hora: 15:05:42 - Metodo: POST
-Fecha: 20/6/2023 -  Hora: 15:09:41 - Metodo: Actualiza un usuario
-Fecha: 20/6/2023 -  Hora: 15:10:06 - Metodo: Actualiza un producto
-Fecha: 20/6/2023 -  Hora: 15:10:21 - Metodo: Actualiza un producto
-Fecha: 5/7/2023 -  Hora: 11:01:09 - Metodo: POST
-Fecha: 5/7/2023 -  Hora: 11:01:43 - Metodo: POST
-Fecha: 5/7/2023 -  Hora: 11:30:40 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:31:10 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:37:06 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:37:40 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:38:48 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:39:21 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:40:28 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:41:01 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:45:42 - Metodo: Actualiza un producto
-Fecha: 5/7/2023 -  Hora: 11:46:40 - Metodo: Actualiza un producto
-Fecha: 5/7/2023 -  Hora: 11:47:05 - Metodo: Actualiza un producto
-Fecha: 5/7/2023 -  Hora: 11:47:36 - Metodo: Actualiza un producto
-Fecha: 5/7/2023 -  Hora: 11:50:20 - Metodo: Consulta un solo producto
-Fecha: 5/7/2023 -  Hora: 11:50:25 - Metodo: Elimina un producto
-Fecha: 5/7/2023 -  Hora: 12:16:59 - Metodo: agregar carrito
-Fecha: 5/7/2023 -  Hora: 12:21:31 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:21:55 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:22:40 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:23:01 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:23:40 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:25:04 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:26:51 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:27:09 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:27:22 - Metodo: borrar producto: 645d8b1283bf26aa33a03b76 del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:05 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:10 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:20 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:23 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:28 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:39:30 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:41:20 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:41:37 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:41:40 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:43:12 - Metodo: agregar producto: 645d8b1283bf26aa33a03b76 al carrito: 645d6da64cf9da512c34ecbc
-Fecha: 5/7/2023 -  Hora: 12:43:36 - Metodo: agregar producto: 645d8b1283bf26aa33a03b76 al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:43:56 - Metodo: agregar producto: 645d8b1283bf26aa33a03b76 al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 12:46:35 - Metodo: agregar cantidad: 8 al producto: 645d8b1283bf26aa33a03b71 del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 14:07:07 - Metodo: agregar cantidad: 8 al producto: 645d8b1283bf26aa33a03b71 del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 14:07:14 - Metodo: borrar producto: 645d8b1283bf26aa33a03b76 del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 14:07:17 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:07:58 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:08:05 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:08:09 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:37:17 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:38:50 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:39:25 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:43:13 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:44:13 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 17:44:29 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:10:16 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:12:08 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:12:53 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:28 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:33 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:36 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:41 - Metodo: agregar cantidad: 8 al producto: 645d8b1283bf26aa33a03b71 del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:49 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:20:52 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:24:03 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:24:37 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:24:42 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:24:46 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:24:48 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 18:25:01 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:39:06 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:39:10 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:39:13 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:39:17 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:42:57 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:43:09 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:44:43 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:44:47 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:45:04 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:46:50 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:46:53 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:46:57 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:47:16 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:48:57 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:50:44 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:50:49 - Metodo: borrar productos del carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:50:52 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:50:55 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:53:04 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:53:46 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:59:40 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 19:59:55 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 20:00:18 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 5/7/2023 -  Hora: 20:00:33 - Metodo: Consulta carrito 64a5896b3fe51db5008d36cd
-Fecha: 6/7/2023 -  Hora: 15:05:31 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:05:32 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:05:33 - Metodo: agregar producto: 645d6f97f7a2d5104fe102a4 al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:06:17 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
-Fecha: 6/7/2023 -  Hora: 15:06:46 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:06:47 - Metodo: agregar producto: 645d6f9ef7a2d5104fe102a6 al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:06:47 - Metodo: agregar producto: 645d8b1283bf26aa33a03b71 al carrito: 646241956ee9abd17719e473
-Fecha: 6/7/2023 -  Hora: 15:06:51 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
-Fecha: 6/7/2023 -  Hora: 15:15:45 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:15:48 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:16:30 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:16:34 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:17:46 - Metodo: agregar producto: 645d8b1283bf26aa33a03b74 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:17:54 - Metodo: agregar producto: 645d8b1283bf26aa33a03b73 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:23:07 - Metodo: agregar producto: 645d6f97f7a2d5104fe102a4 al carrito: undefined
-Fecha: 6/7/2023 -  Hora: 15:23:08 - Metodo: agregar producto: 645d6fa2f7a2d5104fe102a8 al carrito: undefined
-Fecha: 6/7/2023 -  Hora: 15:24:24 - Metodo: agregar producto: 645d6f97f7a2d5104fe102a4 al carrito: undefined
-Fecha: 6/7/2023 -  Hora: 15:40:25 - Metodo: agregar producto: 645d6f97f7a2d5104fe102a4 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:41:01 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:41:02 - Metodo: agregar producto: 645d6f97f7a2d5104fe102a4 al carrito: null
-Fecha: 6/7/2023 -  Hora: 15:41:03 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: null
-Fecha: 6/7/2023 -  Hora: 16:05:01 - Metodo: agregar producto: 645d6d964cf9da512c34ecb8 al carrito: 64a5a710e45a4c4ada0a519c
-Fecha: 6/7/2023 -  Hora: 16:05:04 - Metodo: agregar producto: 645d6fa2f7a2d5104fe102a8 al carrito: 64a5a710e45a4c4ada0a519c
-Fecha: 6/7/2023 -  Hora: 16:05:06 - Metodo: agregar producto: 645d6da04cf9da512c34ecba al carrito: 64a5a710e45a4c4ada0a519c
-Fecha: 6/7/2023 -  Hora: 21:52:59 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 6/7/2023 -  Hora: 21:56:48 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 6/7/2023 -  Hora: 21:58:19 - Metodo: agregar productos al carrito: 64a5896b3fe51db5008d36cd
-Fecha: 11/7/2023 -  Hora: 13:54:52 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 14:00:32 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 14:01:12 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 14:01:59 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 14:02:48 - Metodo: Actualiza un producto
-Fecha: 11/7/2023 -  Hora: 14:02:55 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 14:04:17 - Metodo: Actualiza un producto
-Fecha: 11/7/2023 -  Hora: 14:04:26 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 14:51:28 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 14:52:36 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 14:53:29 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 14:53:55 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 14:56:45 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:03:17 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:25:57 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:26:01 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:28:26 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:28:46 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 15:30:07 - Metodo: POST
-Fecha: 11/7/2023 -  Hora: 16:04:58 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 16:06:11 - Metodo: Consulta un solo producto
-Fecha: 11/7/2023 -  Hora: 16:06:49 - Metodo: Consulta un solo producto
-Fecha: 19/7/2023 -  Hora: 17:05:19 - Metodo: agregar carrito
+Fecha: 7/8/2023 -  Hora: 14:35:47 - Metodo: Consulta un solo producto
+Fecha: 7/8/2023 -  Hora: 14:36:39 - Metodo: Consulta un solo producto
+Fecha: 7/8/2023 -  Hora: 14:45:03 - Metodo: Actualiza un producto
+Fecha: 7/8/2023 -  Hora: 14:55:28 - Metodo: POST
+Fecha: 7/8/2023 -  Hora: 14:56:15 - Metodo: POST
+Fecha: 7/8/2023 -  Hora: 15:32:31 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519e
+Fecha: 7/8/2023 -  Hora: 16:14:21 - Metodo: agregar productos al carrito: 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:14:46 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:15:02 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:15:30 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:16:34 - Metodo: borrar productos del carrito: 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:16:39 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:16:46 - Metodo: agregar productos al carrito: 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:16:58 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:17:23 - Metodo: agregar productos al carrito: 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:17:54 - Metodo: Consulta carrito 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:19:04 - Metodo: agregar productos al carrito: 64a5a710e45a4c4ada0a519c
+Fecha: 7/8/2023 -  Hora: 16:21:33 - Metodo: agregar carrito
+Fecha: 18/8/2023 -  Hora: 13:59:48 - Metodo: POST
+Fecha: 14/9/2023 -  Hora: 10:33:36 - Metodo: POST - creando producto Polo Blue
+Fecha: 14/9/2023 -  Hora: 10:34:08 - Metodo: POST - creando producto Acqua di Gio
+Fecha: 14/9/2023 -  Hora: 10:34:23 - Metodo: POST - creando producto Dior Sauvage
+Fecha: 14/9/2023 -  Hora: 10:34:39 - Metodo: POST - creando producto Bleu de Chanel
+Fecha: 14/9/2023 -  Hora: 10:34:59 - Metodo: POST - creando producto Armani Code
+Fecha: 14/9/2023 -  Hora: 10:35:56 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:47:17 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:47:56 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:51:52 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:52:02 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 10:53:27 - Metodo: POST - creando producto Hugo Boss Bottled
+Fecha: 14/9/2023 -  Hora: 10:53:54 - Metodo: Elimina un producto
+Fecha: 14/9/2023 -  Hora: 11:29:38 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 11:29:45 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 11:30:37 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 12:08:57 - Metodo: agregar producto: 65030bd0c2e156dce352c6af al carrito: 650309ad693b38247c7f2f92
+Fecha: 14/9/2023 -  Hora: 12:08:58 - Metodo: agregar producto: 65030bb0c2e156dce352c6ab al carrito: 650309ad693b38247c7f2f92

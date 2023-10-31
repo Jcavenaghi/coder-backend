@@ -5,7 +5,6 @@ import { cartService } from "../repository/index.js";
 import { transporter } from "../config/gmail_config.js";
 import __dirname from "../utils.js";
 import path from "path"
-import { twilioPhone, twilioClient } from "../config/twilio_config.js";
 
 
 import {v4 as uuidv4} from "uuid";
@@ -15,18 +14,6 @@ const managerAccess = new ManagerAccess();
 const productManager = new ProductManager();
 
 class CartsController {
-
-    /**
-
-    Recupera un carrito por su ID desde la base de datos.
-    @param {Object} req - El objeto de solicitud que contiene los parámetros.
-    @param {Object} res - El objeto de respuesta para enviar el resultado.
-    @returns {Object} - Devuelve un objeto JSON con los datos del carrito o un mensaje de error.
-    Este método obtiene el carrito con el ID especificado desde la base de datos.
-    Registra la solicitud en managerAccess y luego intenta recuperar el carrito usando cartService.
-    Si tiene éxito, envía una respuesta JSON con un estado de "éxito" y los datos del carrito.
-    Si ocurre un error, envía una respuesta JSON con un estado de "error" y el mensaje de error.
-    */
     getCartById = async (req, res) => {
         const id = req.params.cid;
         await managerAccess.crearRegistro(`Consulta carrito ${id}`);
@@ -181,15 +168,6 @@ class CartsController {
                         },
                     ]
                 })
-                                //creamos el mensaje
-                await twilioClient.messages.create({
-                    body: `Gracias ${req.user.email}, sus productos esta en camino.`,
-                    from: twilioPhone,
-                    to: "+54 2241 470254" //cambiar por tu num @eduardo para probar.
-                })
-            
-                
-
                 res.send(ticketCreated)
 
             }else{
