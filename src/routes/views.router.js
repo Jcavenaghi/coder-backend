@@ -29,7 +29,6 @@ router.get("/products", async (req, res) => {
   try {
     const result = await manager.getProducts(sort, limit, page, query);
     const products = result.payload;
-    console.log(req.user.cart);
     const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
     res.render('index', {
       products,

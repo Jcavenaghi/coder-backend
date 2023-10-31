@@ -36,7 +36,6 @@ class SessionController {
 
     current = (req,res)=>{
         // loguearse para obtenerlo
-        console.log(req.query.token)
         const user = new GetUserDto(req.user);
         res.send({status:"success", user})
     }
@@ -69,8 +68,6 @@ class SessionController {
             const token = req.query.token;
             const {email, password } = req.body;
             const validToken = verifyEmailToken(token);
-            console.log(email)
-            console.log(password);
             if(!email || !password ) return res.status(400).send({status:"error", error:"Datos incorrectos"})
             if (!validToken) {
                 return res.send(`El enlace ya no es valido, genere uno nuevo: <a href="/forgotPassword">Nuevo enlace</a>.`)

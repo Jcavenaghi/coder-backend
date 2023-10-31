@@ -139,7 +139,6 @@ class ProductsController {
         const prods = []
         for (let i = 0; i < cant; i++) {
             const prod = generateProduct();
-            console.log(prod);
             prods.push(prod);
             productsService.createProduct(prod);
         }
