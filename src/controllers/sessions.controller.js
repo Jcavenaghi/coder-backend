@@ -5,7 +5,7 @@ import { validatePassword, generateEmailToken, verifyEmailToken, createHash } fr
 const userManager = new UserManager();
 class SessionController {
     register = async(req,res) =>{
-        res.send({status:"succes", message:"User registered"});
+        res.send({status:"success", message:"User registered"});
     }
 
     failRegister = async (req,res)=>{
@@ -23,6 +23,8 @@ class SessionController {
             name: `${req.user.first_name} ${req.user.last_name}`,
             age: req.user.age,
             email: req.user.email,
+            role: req.user.role,
+            cartId: req.user.cart
         }
         req.logger.info("Ingreso exitoso");
         res.send({status:"success", payload:req.user, message: "Logueo exitoso"})
