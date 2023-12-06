@@ -15,10 +15,29 @@ form.addEventListener('submit', e =>{
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(result=>{
-        if(result.status == 200){
-            window.location.replace('/profile')
+    })    
+    .then(response => response.json())
+    .then(result=>{
+        // Verificar si el registro fue exitoso
+        if (result.status === "success") {
+        // Registro exitoso, mostrar alerta y redirigir
+        swal({
+            title: "Logueo exitoso!",
+            icon: "success"
+          }).then(() => {
+            window.location.href = '/profile';
+          })
+        } else {
+            // Registro fallido, mostrar alerta de error
+            swal({
+                title: "Logueo fallido",
+                text: "usuario y/o contraseña incorrecto/s",
+                icon: "error"
+              }).then(() => {
+                window.location.href = '/login';
+              })
         }
+        return result;
     })
 })
 

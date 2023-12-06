@@ -14,10 +14,19 @@ form.addEventListener('submit', e=>{
         headers:{
             'Content-Type': 'application/json'
         }
-    }).then(result=>{ 
-        if(result.status === 200){
-            console.log("Contraseña restaurada");
+    })
+    .then(response => response.json())
+    .then(result=>{
+        // Verificar si el registro fue exitoso
+        if (result.status === "success") {
+        // Registro exitoso, mostrar alerta y redirigir
+        swal({
+            title: "Contraseña restaurada",
+            icon: "success"
+          }).then(() => {
+            window.location.href = '/login';
+          })
         }
-     })
+    })
 
 })

@@ -5,16 +5,17 @@ import { validatePassword, generateEmailToken, verifyEmailToken, createHash } fr
 const userManager = new UserManager();
 class SessionController {
     register = async(req,res) =>{
-        res.send({status:"success", message:"User registered"});
+        // res.send({status:"success", message:"User registered"});
+        res.json({ status: "success", message: "User registered" });
     }
 
     failRegister = async (req,res)=>{
         req.logger.warning("fallo en el registro");
         res.send({error: 'Error en el registro'});
+        res.json({ status: "error", message: "El usuario no pudo registrarse" });
     }
 
     login = async (req,res)=>{
-    
         if(!req.user) {
             req.logger.warning("Credenciales invalidas");
             return res.status(400).send({status:"error", error: 'Invalid credentials'});
@@ -32,6 +33,8 @@ class SessionController {
     failLogin = async (req,res)=>{
         req.logger.warning("fallo en el ingreso");
         res.send({error: 'Error en el ingreso'})
+        res.redirect('/');
+        /* here add render to "/" and message with "error in log in" */
     
     }
 
@@ -45,6 +48,7 @@ class SessionController {
         req.session.destroy(err =>{
             if(err) return res.status(500).send({status:"error", error:"No pudo cerrar sesion"})
             res.redirect('/login');
+        /* perfect example to redirect. add alert with message "sesión cerrada" */
         })
     }
 
@@ -88,12 +92,6 @@ class SessionController {
             return res.status(400).send({status:"error", message: err.message})
         }   
     }
-
-    githubCallback = async (req,res)=>{
-        req.session.user = req.user;
-        res.redirect('/')
-    }
-
 }
 
 export default SessionController
