@@ -52,7 +52,6 @@ router.get('/faillogin', (req,res) => {
 })
 
 router.get('/profile', checkRole(["USER", "ADMIN", "PREMIUM"]) ,(req,res)=>{
-  console.log(req.user)
   res.render('session/profile',{
       email: req.user.email,
       first_name: req.user.first_name,

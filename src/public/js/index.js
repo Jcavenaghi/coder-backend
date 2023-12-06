@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(`/api/carts/${cartId}/products/${productId}`, {
             method: 'POST'
           });
-          console.log("¡añadido!");
+          swal({
+            icon: 'success',
+            title: 'producto añadido',
+            showConfirmButton: false,
+            timer: 1200 // Adjust the timer as needed
+        })
         return response
     } catch(error)  {
       // Maneja cualquier error que ocurra durante la solicitud

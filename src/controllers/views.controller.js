@@ -12,7 +12,6 @@ class viewsController {
         try {
             const result = await manager.getProducts(sort, limit, page, query);
             const products = result.payload;
-            console.log(products)
             const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
             res.render('index', {
                 products,
@@ -35,7 +34,6 @@ class viewsController {
         const pid = req.params.pid;
         try {
           const result = await manager.getProductById(pid);
-          console.log(result)
           res.render('product', {
             prod: result.prod,
             cartId: req.user.cart

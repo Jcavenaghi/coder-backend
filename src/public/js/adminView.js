@@ -1,5 +1,4 @@
 function modificarUsuario(userId) {
-    console.log( `estoy: ${userId}` )
     fetch(`/api/users/premium/${userId}`, {
       method: 'PUT',
       headers: {

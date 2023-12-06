@@ -9,19 +9,32 @@
     })
       .then(response => {
         if (!response.ok) {
-          throw new Error('Error al finalizar la compra');
+          swal({
+            title: "Compra fallida",
+            text: "No pudo realizarse la compra.",
+            icon: "error"
+          }).then(() => {
+            throw new Error('Error al finalizar la compra');
+          })
         }
         return response.json();
       })
       .then(data => {
         // Maneja la respuesta del servidor después de finalizar la compra
-        console.log('Compra finalizada con éxito:', data);
-        alert('Compra realizada con éxito');
-        window.location.href = "/products"
-        // Puedes realizar acciones adicionales aquí, como redireccionar a otra página.
+        swal({
+          title: "Compra exitosa",
+          text: "¡Se realizo la compra de los productos solicitados!",
+          icon: "success"
+        }).then(() => {
+          window.location.href = "/products"
+        })
       })
       .catch(error => {
         console.error('Error:', error);
         // Maneja errores aquí, como mostrar un mensaje al usuario.
+        swal({
+          title: "Ocurrio un error al procesar la compra",
+          icon: "error"
+        })
       });
   }
