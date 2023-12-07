@@ -1,12 +1,14 @@
-<div class=" m-4 card text-center">
+<div class="m-4 card text-center">
     <div class="card-header">
-        {{result.prod.title}}
+        {{prod.title}}
     </div>
     <div class="card-body">
-        <p class="card-text">{{result.prod.description}}</p>
-        <p class="card-text">Price: ${{result.prod.price}}</p>
-        <p class="card-text">Stock: {{result.prod.stock}}</p>
-        <p class="card-text">Category: {{result.prod.category}}</p>
-        <p class="card-text">code: {{result.prod.code}}</p>
+        <img src="{{prod.img}}" alt="imagen" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
+
+        <p class="card-text">{{prod.description}}</p>
+        <p class="card-text">Price: ${{prod.price}}</p>
+        <p class="card-text">Stock: {{prod.stock}}</p>
+        <p class="card-text">Category: {{prod.category}}</p>
+        <p class="card-text">code: {{prod.code}}</p>
     </div>
 </div>

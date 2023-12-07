@@ -34,6 +34,7 @@ class viewsController {
         const pid = req.params.pid;
         try {
           const result = await manager.getProductById(pid);
+          console.log(result.prod);
           res.render('product', {
             prod: result.prod,
             cartId: req.user.cart
