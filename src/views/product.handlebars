@@ -1,14 +1,16 @@
 <div class="m-4 card text-center">
     <div class="card-header">
-        {{prod.title}}
+        <h5 class="card-title text-primary">{{prod.title}}</a></h5>
     </div>
-    <div class="card-body">
-        <img src="{{prod.img}}" alt="imagen" class="img-fluid rounded" style="max-height: 200px; object-fit: cover;">
-
-        <p class="card-text">{{prod.description}}</p>
+    <div class="card mb-4 shadow-sm" style="border: 2px solid #b8860b;">
+    <div class="card-body text-center">
+        <p class="card-text">Edition: {{prod.description}}</p>
         <p class="card-text">Price: ${{prod.price}}</p>
         <p class="card-text">Stock: {{prod.stock}}</p>
         <p class="card-text">Category: {{prod.category}}</p>
         <p class="card-text">code: {{prod.code}}</p>
+        <button class="btn btn-info add-to-cart-btn mb-2 mx-5 text-uppercase" style="background-color: #b8860b; border: 2px solid #b8860b;" data-product-id="{{prod._id}}" data-cart-id="{{cartId}}">Añadir al carrito</button>
     </div>
 </div>
+</div>
+<script src="/js/product.js"></script>

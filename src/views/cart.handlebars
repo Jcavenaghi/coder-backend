@@ -1,5 +1,6 @@
 <div class="container-fluid">
     <h1 class="text-center text-uppercase">Renderizando carrito: {{this.id}}</h1>
+    <div class="container2" data-cartId="{{this.id}}"></div>
     {{#if this.products.length}}
         <div class="row mt-4">
             {{#each this.products}}
@@ -10,7 +11,7 @@
                         <p class="card-text">{{product.description}}</p>
                         <p class="card-text">Price: ${{product.price}}</p>
                         <p class="card-text">Cantidad: {{this.quantity}}</p>
-                        <button class="btn btn-danger" onclick="eliminarProducto('{{product._id}}')">Eliminar producto</button>
+                        <button class="btn btn-danger" data-product-id="{{product._id}}">Eliminar producto</button>
                     </div>
                 </div>
             </div>

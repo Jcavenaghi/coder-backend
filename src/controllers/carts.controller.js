@@ -43,12 +43,16 @@ class CartsController {
     deleteProductFromCart = async (req,res) => {
         let cid = req.params.cid;
         let pid = req.params.pid;
+        console.log("que apso")
         await managerAccess.crearRegistro(`borrar producto: ${pid} del carrito: ${cid}`);
         try {
+            console.log("estoy borrando")
             const result = await cartService.deleteProduct(cid,pid);
             req.logger.info(`se borro el producto ${pid} del carrito ${cid}`)
-            res.send({status:"sucess", result});
+            res.send({status:"success", result});
         } catch (error) {
+            console.log("no borre")
+            console.log(error)
             req.logger.info(`Error al borrar el producto.`)
             res.status(400).send({status:"error", error: `${error}`})
         }
@@ -149,25 +153,6 @@ class CartsController {
                 }
                 
                 const ticketCreated = await ticketModel.create(newTicket)
-                const emailTemplate = `<div>
-                    <h1>¡Compra realizada!</h1>
-                    <p>Su producto esta en camino</p>
-                    <img width="100%" src="cid:data"/>
-                    <a href="https://www.google.com/">Explorar</a>
-                    </div>`;
-                await transporter.sendMail({
-                    from:"Eccomerce PerfumArg",
-                    to:"joaquincavenaghi@gmail.com", //cambiar por tu email @eduardo para probar.
-                    subject:"Compra Exitosa",
-                    html: emailTemplate,
-                    attachments:[
-                        {
-                            filename: 'data.jpg',
-                            path: path.join(__dirname,"/images/data.jpg"),
-                            cid:"data"
-                        },
-                    ]
-                })
                 res.send(ticketCreated)
 
             }else{

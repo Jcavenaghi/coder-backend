@@ -1,16 +1,55 @@
-<div class="container mt-5">
-    <div class="col-md-6 mx-auto">
-        <div class="card" id="card-container">
-            <div class="card-body">
-                <h1 class="card-title text-center">Mi Perfil</h1>
-                {{#if fist_name}}
-                    <p class="card-text"><strong>Nombre:</strong> {{first_name}}</p>
-                {{/if}}
-                <p class="card-text"><strong>Email:</strong> {{email}}</p>
-                <p class="card-text"><strong>Edad:</strong> {{age}}</p>
-                <p class="card-text"><strong>Rol:</strong> {{role}}</p>
-                <a href="/api/session/logout" class="btn btn-danger btn-block">Salir</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - PerfumArg</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        #card-container {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+        .card-title {
+            color: #007bff; /* Color azul brillante */
+        }
+        .card-text {
+            color: #495057; /* Color de texto oscuro */
+        }
+        .btn-danger {
+            background-color: #dc3545; /* Color rojo oscuro */
+            border-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333; /* Color rojo más oscuro al pasar el ratón */
+            border-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="col-md-6 mx-auto">
+            <div class="card" id="card-container">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Mi Perfil</h1>
+                    {{#if first_name}}
+                        <p class="card-text"><strong>Nombre:</strong> {{first_name}}</p>
+                    {{/if}}
+                    <p class="card-text"><strong>Email:</strong> {{email}}</p>
+                    <p class="card-text"><strong>Edad:</strong> {{age}}</p>
+                    <p class="card-text"><strong>Rol:</strong> {{role}}</p>
+                    <a href="/api/session/logout" class="btn btn-danger btn-block">Salir</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
+</html>

@@ -12,6 +12,7 @@ class viewsController {
         try {
             const result = await manager.getProducts(sort, limit, page, query);
             const products = result.payload;
+            console.log(products)
             const linkQuerys = `limit=${limit}&sort=${sort}&query=${query}`
             res.render('index', {
                 products,
